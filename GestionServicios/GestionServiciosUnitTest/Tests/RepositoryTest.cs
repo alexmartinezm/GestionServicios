@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
 using GestionServiciosUnitTest.Models;
 using GestionServiciosUnitTest.Repository;
 using NUnit.Framework;
@@ -62,14 +61,13 @@ namespace GestionServiciosUnitTest.Tests
 
             // Lo modificamos
             servicio.Descripcion = "Me he actualizado";
-            _repositoryBase.Update(servicio);
+            var updated = _repositoryBase.Update(servicio);
 
-            var servicioUpdated = _repositoryBase.Find(s => true).First();
-            Assert.AreEqual(servicio.Descripcion, servicioUpdated.Descripcion);
+            Assert.IsTrue(updated);
         }
 
         [Test]
-        public void CheckEntitiesPositionAfterUpdatingOk()
+        public void CheckEntitiesPositionAfterUpdatingTest()
         {
             // Creamos servicios
             var servicio1 = new Servicio()
@@ -97,9 +95,12 @@ namespace GestionServiciosUnitTest.Tests
 
             // Actualizamos el objeto servicio2
             servicio2.Descripcion = "Segundo servicio, actualizado!";
-            _repositoryBase.Update(servicio2);
+            var result = _repositoryBase.Update(servicio2);
             
-            // Comprobamos la posición
+            // Comprobamos si se ha actualizado
+            Assert.IsTrue(result);
+
+            // Comprobamos si la posición del objeto, dentro de la lista, ha cambiado
             Assert.AreEqual(1, _repositoryBase.Find(s => true).IndexOf(servicio2));
             Assert.AreEqual(3, _repositoryBase.Find(s => true).IndexOf(servicio4));
         }
@@ -107,17 +108,45 @@ namespace GestionServiciosUnitTest.Tests
         [Test]
         public void DeleteEntityTest()
         {
-
+            var desc = "Primer servicio";
             // Creamos servicios
             var servicio = new Servicio()
             {
-                Descripcion = "Primer servicio"
+                Descripcion = desc
             };
 
             // Lo añadimos al repositorio
             _repositoryBase.Create(servicio);
 
-            //_repositoryBase.Delete()
+            // Eliminamos el objeto del repositorio
+            var result = _repositoryBase.Delete(s => s.Descripcion.Equals(desc));
+
+            // Comprobamos la cantidad de elementos borrados
+            Assert.AreEqual(1, result);
+        }
+
+        [Test]
+        public void DeleteMultipleEntitiesTest()
+        {
+            // Creamos servicios
+            var servicio1 = new Servicio()
+            {
+                Descripcion = "Primer servicio"
+            };
+            var servicio2 = new Servicio()
+            {
+                Descripcion = "Segundo servicio"
+            };
+
+            // Lo añadimos al repositorio
+            _repositoryBase.Create(servicio1);
+            _repositoryBase.Create(servicio2);
+
+            // Eliminamos todos los objetos del repositorio
+            var result = _repositoryBase.Delete(s => true);
+
+            // Comprobamos la cantidad de elementos borrados
+            Assert.AreEqual(2, result);
         }
     }
 }

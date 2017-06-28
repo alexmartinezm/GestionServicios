@@ -20,6 +20,11 @@ namespace GestionServiciosUnitTest.Repository
             return entity;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="predicate"></param>
+        /// <returns>Cantidad de registros eliminados.</returns>
         public int Delete(Func<TEntity, bool> predicate)
         {
 
@@ -38,26 +43,19 @@ namespace GestionServiciosUnitTest.Repository
         }
 
         /// <summary>
-        /// 
+        /// Actualiza una entidad.
         /// </summary>
-        /// <param name="newEntity"></param>
+        /// <param name="entityToUpdate">Entidad a actualizar</param>
         /// <exception cref="NotImplementedException"></exception>
-        /// <returns></returns>
-        public bool Update(TEntity newEntity)
+        /// <returns>True si se ha actualizado.</returns>
+        public bool Update(TEntity entityToUpdate)
         {
-            var hasChanged = false;
-
-            var currentEntity = _contextList.First(e => e.Id == newEntity.Id);
+            var currentEntity = _contextList.First(e => e.Id == entityToUpdate.Id);
             var position = _contextList.IndexOf(currentEntity);
             _contextList.RemoveAt(position);
-            _contextList.Insert(position, newEntity);
+            _contextList.Insert(position, entityToUpdate);
 
-            //if (_contextList.FirstOrDefault(currentEntity) != null)
-            //{
-                
-            //}
-
-            return hasChanged;
+            return _contextList.FirstOrDefault(e => e.Id == entityToUpdate.Id) != null;
         }
     }
 }
