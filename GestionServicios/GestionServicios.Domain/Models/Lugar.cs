@@ -4,7 +4,27 @@ namespace GestionServicios.Domain.Models
 {
     public class Lugar : BaseModel
     {
-        public Calle Calle { get; set; }
-        public int Numero { get; set; }
+        #region Fields
+
+        private Calle _calle;
+        private int _numero;
+
+        #endregion
+
+        #region Properties
+
+        public Calle Calle
+        {
+            get { return _calle; }
+            set { _calle = value; RaiseOnPropertyChanged();}
+        }
+
+        public int Numero
+        {
+            get { return _numero; }
+            set { _numero = value; RaiseOnPropertyChanged();}
+        }
+
+        #endregion
     }
 }

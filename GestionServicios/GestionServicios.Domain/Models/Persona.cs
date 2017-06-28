@@ -4,6 +4,20 @@ namespace GestionServicios.Domain.Models
 {
     public class Persona : BaseModel
     {
-        public string Dni { get; set; }
+        #region Fields
+
+        private string _dni;
+
+        #endregion
+
+        #region Properties
+
+        public string Dni
+        {
+            get { return _dni; }
+            set { _dni = value; RaiseOnPropertyChanged(); }
+        }
+
+        #endregion
     }
 }

@@ -1,3 +1,5 @@
+using GestionServicios.Domain.Models.Base.Handle_Id.Interfaces;
+
 namespace GestionServicios.Domain.Models.Base.Handle_Id
 {
     /// <summary>

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using GestionServicios.Core.Repositories.Interfaces;
 using GestionServicios.Domain.Models.Base;
 
 namespace GestionServicios.Core.Repositories

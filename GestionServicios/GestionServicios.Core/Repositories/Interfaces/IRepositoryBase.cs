@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace GestionServicios.Core.Repositories
+namespace GestionServicios.Core.Repositories.Interfaces
 {
     public interface IRepositoryBase <TEntity> where TEntity : class, new()
     {

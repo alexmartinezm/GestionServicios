@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using GestionServicios.Domain.Models;
 using GestionServicios.Mocks.Mocks;
@@ -32,7 +33,7 @@ namespace GestionServiciosUnitTest.Tests
             var agente = agentesMocked.ElementAt(0);
             max++;
 
-            var vehiculosList = new List<Vehiculo>
+            var vehiculosList = new ObservableCollection<Vehiculo>
             {
                 new Vehiculo()
                 {
@@ -53,7 +54,7 @@ namespace GestionServiciosUnitTest.Tests
             };
             max += vehiculosList.Count;
 
-            var personasList = new List<Persona>()
+            var personasList = new ObservableCollection<Persona>()
             {
                 new Persona()
                 {

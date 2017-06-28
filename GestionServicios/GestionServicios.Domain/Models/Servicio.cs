@@ -1,16 +1,60 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using GestionServicios.Domain.Models.Base;
 
 namespace GestionServicios.Domain.Models
 {
     public class Servicio : BaseModel
     {
-        public DateTime Fecha { get; set; }
-        public string Descripcion { get; set; }
-        public Lugar Lugar { get; set; }
-        public Agente Agente { get; set; }
-        public IList<Vehiculo> Vehiculos { get; set; }
-        public IList<Persona> Personas { get; set; }
+        #region Fields
+
+        private DateTime _fecha;
+        private string _descripcion;
+        private Lugar _lugar;
+        private Agente _agente;
+        private ObservableCollection<Vehiculo> _vehiculos;
+        private ObservableCollection<Persona> _personas;
+
+        #endregion
+
+        #region Properties
+
+        public DateTime Fecha
+        {
+            get { return _fecha; }
+            set { _fecha = value; RaiseOnPropertyChanged(); }
+        }
+
+        public string Descripcion
+        {
+            get { return _descripcion; }
+            set { _descripcion = value; RaiseOnPropertyChanged(); }
+        }
+
+        public Lugar Lugar
+        {
+            get { return _lugar; }
+            set { _lugar = value; RaiseOnPropertyChanged(); }
+        }
+
+        public Agente Agente
+        {
+            get { return _agente; }
+            set { _agente = value; RaiseOnPropertyChanged(); }
+        }
+
+        public ObservableCollection<Vehiculo> Vehiculos
+        {
+            get { return _vehiculos; }
+            set { _vehiculos = value; RaiseOnPropertyChanged(); }
+        }
+
+        public ObservableCollection<Persona> Personas
+        {
+            get { return _personas; }
+            set { _personas = value; RaiseOnPropertyChanged(); }
+        }
+
+        #endregion
     }
 }
