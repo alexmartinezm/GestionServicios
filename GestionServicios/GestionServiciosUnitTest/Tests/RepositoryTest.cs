@@ -13,8 +13,8 @@ namespace GestionServiciosUnitTest.Tests
         [SetUp]
         public void SetUp()
         {
-            _repositoryBase = new RepositoryInMemory<Servicio>(new List<Servicio>());
-        }
+            _repositoryBase = new RepositoryInMemory<Servicio>(new MemoryContext());
+        }    
 
         [Test]
         public void AddEntityTest()
