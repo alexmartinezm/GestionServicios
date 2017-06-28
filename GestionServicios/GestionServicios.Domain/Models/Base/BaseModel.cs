@@ -2,7 +2,7 @@ using GestionServicios.Domain.Models.Base.Handle_Id;
 
 namespace GestionServicios.Domain.Models.Base
 {
-    public abstract class EntityBase : GenerateIdInMemory
+    public abstract class BaseModel : GenerateIdInMemory
     {
         // Objeto locker para proteger las instrucciones
         private static readonly object Lock = new object();
@@ -12,7 +12,7 @@ namespace GestionServicios.Domain.Models.Base
         /// </summary>
         public int Id { get; }
 
-        protected EntityBase()
+        protected BaseModel()
         {
             // Excluímos el objeto actual y lo liberamos al generar la ID
             lock (Lock)

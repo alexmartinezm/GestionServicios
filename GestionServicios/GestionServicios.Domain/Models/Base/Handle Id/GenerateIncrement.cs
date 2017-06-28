@@ -4,7 +4,7 @@ using System.Linq;
 namespace GestionServicios.Domain.Models.Base.Handle_Id
 {
     /// <summary>
-    /// Genera IDs cuando se crea una nueva entidad que herede de EntityBase
+    /// Genera IDs cuando se crea una nueva entidad que herede de BaseModel
     /// y almacena en una lista de enteros todos los IDs.
     /// </summary>
     public static class GenerateIncrement

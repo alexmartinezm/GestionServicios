@@ -5,7 +5,7 @@ using GestionServicios.Domain.Models.Base;
 
 namespace GestionServicios.Core.Repositories
 {
-    public class RepositoryInMemory<TEntity> : IRepositoryBase<TEntity> where TEntity : EntityBase, new()
+    public class RepositoryInMemory<TEntity> : IRepositoryBase<TEntity> where TEntity : BaseModel, new()
     {
         private readonly IList<TEntity> _contextList;
 

@@ -36,7 +36,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Models\Agente.cs" />
-    <Compile Include="Models\Base\EntityBase.cs" />
+    <Compile Include="Models\Base\BaseModel.cs" />
     <Compile Include="Models\Base\Handle Id\GenerateIdInMemory.cs" />
     <Compile Include="Models\Base\Handle Id\GenerateIncrement.cs" />
     <Compile Include="Models\Base\Handle Id\IGenerateId.cs" />

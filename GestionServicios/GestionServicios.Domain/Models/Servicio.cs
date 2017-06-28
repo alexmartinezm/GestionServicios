@@ -4,7 +4,7 @@ using GestionServicios.Domain.Models.Base;
 
 namespace GestionServicios.Domain.Models
 {
-    public class Servicio : EntityBase
+    public class Servicio : BaseModel
     {
         public DateTime Fecha { get; set; }
         public string Descripcion { get; set; }

@@ -2,7 +2,7 @@ using GestionServicios.Domain.Models.Base;
 
 namespace GestionServicios.Domain.Models
 {
-    public class Persona : EntityBase
+    public class Persona : BaseModel
     {
         public string Dni { get; set; }
     }
