@@ -16,7 +16,7 @@ namespace GestionServiciosUnitTest.Tests
         }
 
         [Test]
-        public void CreateEntities()
+        public void CreateEntitiesTest()
         {
             var callesMocked = CallesMock.Calles;
             var agentesMocked = AgentesMock.Agentes;

@@ -9,7 +9,7 @@ namespace GestionServiciosUnitTest.Repository
 
         List<TEntity> Find(Func<TEntity, bool> predicate);
 
-        int Update(TEntity newEntity);
+        bool Update(TEntity newEntity);
 
         int Delete(Func<TEntity, bool> predicate);
     }

@@ -43,12 +43,21 @@ namespace GestionServiciosUnitTest.Repository
         /// <param name="newEntity"></param>
         /// <exception cref="NotImplementedException"></exception>
         /// <returns></returns>
-        public int Update(TEntity newEntity)
+        public bool Update(TEntity newEntity)
         {
+            var hasChanged = false;
+
             var currentEntity = _contextList.First(e => e.Id == newEntity.Id);
             var position = _contextList.IndexOf(currentEntity);
+            _contextList.RemoveAt(position);
             _contextList.Insert(position, newEntity);
-            return newEntity.Id;
+
+            //if (_contextList.FirstOrDefault(currentEntity) != null)
+            //{
+                
+            //}
+
+            return hasChanged;
         }
     }
 }
