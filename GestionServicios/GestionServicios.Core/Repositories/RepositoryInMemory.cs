@@ -1,11 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using GestionServiciosUnitTest.Models.Base;
+using GestionServicios.Domain.Models.Base;
 
-namespace GestionServiciosUnitTest.Repository
+namespace GestionServicios.Core.Repositories
 {
-    internal class RepositoryInMemory<TEntity> : IRepositoryBase<TEntity> where TEntity : EntityBase, new()
+    public class RepositoryInMemory<TEntity> : IRepositoryBase<TEntity> where TEntity : EntityBase, new()
     {
         private readonly IList<TEntity> _contextList;
 

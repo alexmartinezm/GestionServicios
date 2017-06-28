@@ -1,6 +1,6 @@
 using System.Collections.Generic;
-using GestionServiciosUnitTest.Models;
-using GestionServiciosUnitTest.Repository;
+using GestionServicios.Core.Repositories;
+using GestionServicios.Domain.Models;
 using NUnit.Framework;
 
 namespace GestionServiciosUnitTest.Tests
@@ -96,7 +96,7 @@ namespace GestionServiciosUnitTest.Tests
             // Actualizamos el objeto servicio2
             servicio2.Descripcion = "Segundo servicio, actualizado!";
             var result = _repositoryBase.Update(servicio2);
-            
+
             // Comprobamos si se ha actualizado
             Assert.IsTrue(result);
 

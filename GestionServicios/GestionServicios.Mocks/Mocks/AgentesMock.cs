@@ -1,7 +1,7 @@
 using System.Collections.Generic;
-using GestionServiciosUnitTest.Models;
+using GestionServicios.Domain.Models;
 
-namespace GestionServiciosUnitTest.Mocks
+namespace GestionServicios.Mocks.Mocks
 {
     public class AgentesMock
     {

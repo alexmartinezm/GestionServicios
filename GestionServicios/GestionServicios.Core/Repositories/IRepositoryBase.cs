@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 
-namespace GestionServiciosUnitTest.Repository
+namespace GestionServicios.Core.Repositories
 {
-    internal interface IRepositoryBase <TEntity> where TEntity : class, new()
+    public interface IRepositoryBase <TEntity> where TEntity : class, new()
     {
         TEntity Create(TEntity entity);
 

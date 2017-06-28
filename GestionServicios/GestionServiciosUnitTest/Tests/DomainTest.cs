@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using GestionServiciosUnitTest.Mocks;
-using GestionServiciosUnitTest.Models;
+using GestionServicios.Domain.Models;
+using GestionServicios.Mocks.Mocks;
 using NUnit.Framework;
 
 namespace GestionServiciosUnitTest.Tests
