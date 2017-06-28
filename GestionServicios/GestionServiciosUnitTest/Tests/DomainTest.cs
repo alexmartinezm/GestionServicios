@@ -18,13 +18,19 @@ namespace GestionServiciosUnitTest.Tests
         [Test]
         public void CreateEntities()
         {
+            var callesMocked = CallesMock.Calles;
+            var agentesMocked = AgentesMock.Agentes;
+            var max = callesMocked.Count + agentesMocked.Count;
+
             var lugar = new Lugar()
             {
-                Calle = new CallesMock().Calles.ElementAt(0),
+                Calle = callesMocked.ElementAt(0),
                 Numero = 2
             };
+            max++;
 
-            var agente = new AgentesMock().Agentes.ElementAt(0);
+            var agente = agentesMocked.ElementAt(0);
+            max++;
 
             var vehiculosList = new List<Vehiculo>
             {
@@ -45,6 +51,7 @@ namespace GestionServiciosUnitTest.Tests
                     }
                 }
             };
+            max += vehiculosList.Count;
 
             var personasList = new List<Persona>()
             {
@@ -57,6 +64,7 @@ namespace GestionServiciosUnitTest.Tests
                     Dni = "16728316J"
                 },
             };
+            max += personasList.Count;
 
             var servicio = new Servicio()
             {
@@ -67,11 +75,17 @@ namespace GestionServiciosUnitTest.Tests
                 Vehiculos = vehiculosList,
                 Personas = personasList
             };
+            max++;
 
             var serviciosList = new List<Servicio> {servicio};
 
+            // Comprobación de instancias
             Assert.AreEqual(1, serviciosList.Count);
             Assert.AreSame(typeof(Persona), personasList.ElementAt(0).GetType());
+
+            // Comprobación de IDs correctas
+            Assert.AreEqual(3, callesMocked.Last().Id);
+            Assert.AreEqual(max, servicio.Id);
         }
     }
 }

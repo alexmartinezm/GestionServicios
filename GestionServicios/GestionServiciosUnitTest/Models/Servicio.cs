@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using GestionServiciosUnitTest.Models.Base;
 
 namespace GestionServiciosUnitTest.Models
 {
-    public class Servicio
+    public class Servicio : EntityBase
     {
         public DateTime Fecha { get; set; }
         public string Descripcion { get; set; }

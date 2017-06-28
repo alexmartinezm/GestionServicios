@@ -5,25 +5,20 @@ namespace GestionServiciosUnitTest.Mocks
 {
     public class AgentesMock
     {
-        public IList<Agente> Agentes { get; set; }
-
-        public AgentesMock()
+        public static IList<Agente> Agentes = new List<Agente>()
         {
-            Agentes = new List<Agente>()
+            new Agente()
             {
-                new Agente()
-                {
-                    Tip = 0007
-                },
-                new Agente()
-                {
-                    Tip = 8823
-                },
-                new Agente()
-                {
-                    Tip = 2292
-                }
-            };
-        }
+                Tip = 0007
+            },
+            new Agente()
+            {
+                Tip = 8823
+            },
+            new Agente()
+            {
+                Tip = 2292
+            }
+        };
     }
 }

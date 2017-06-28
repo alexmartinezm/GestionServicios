@@ -47,13 +47,21 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Xml" />
     <Reference Include="Xamarin.Android.NUnitLite" />
+    <Reference Include="Xamarin.Android.Support.v4, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.Android.Support.v4.23.3.0\lib\MonoAndroid403\Xamarin.Android.Support.v4.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainActivity.cs" />
     <Compile Include="Mocks\AgentesMock.cs" />
     <Compile Include="Models\Agente.cs" />
     <Compile Include="Mocks\CallesMock.cs" />
+    <Compile Include="Models\Base\GenerateIdInMemory.cs" />
+    <Compile Include="Models\Base\IGenerateId.cs" />
     <Compile Include="Models\Calle.cs" />
+    <Compile Include="Models\Base\EntityBase.cs" />
+    <Compile Include="Models\Base\GenerateIncrement.cs" />
     <Compile Include="Tests\DomainTest.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -61,8 +69,12 @@
     <Compile Include="Models\Persona.cs" />
     <Compile Include="Models\Vehiculo.cs" />
     <Compile Include="Models\Servicio.cs" />
+    <Compile Include="Repository\IRepositoryBase.cs" />
+    <Compile Include="Repository\RepositoryInMemory.cs" />
+    <Compile Include="Tests\RepositoryTest.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
   </ItemGroup>

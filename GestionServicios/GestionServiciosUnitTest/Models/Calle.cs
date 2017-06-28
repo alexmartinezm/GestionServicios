@@ -1,8 +1,9 @@
+using GestionServiciosUnitTest.Models.Base;
+
 namespace GestionServiciosUnitTest.Models
 {
-    public class Calle
+    public class Calle : EntityBase
     {
-        public int Id { get; set; }
         public string Valor { get; set; }
     }
 }
