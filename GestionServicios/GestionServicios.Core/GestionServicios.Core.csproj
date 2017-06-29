@@ -35,6 +35,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Commands\NewPageCommand.cs" />
     <Compile Include="IOC\Global.cs" />
     <Compile Include="IOC\ISqlite.cs" />
     <Compile Include="IOC\ISqliteContext.cs" />

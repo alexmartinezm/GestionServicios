@@ -78,7 +78,11 @@ namespace GestionServicios.Views
                 {
                     File = "ic_action_add.png"
                 }
+#pragma warning disable 612
             };
+            _createServicioToolbarItem.SetBinding<ShowServiciosViewModel>(MenuItem.CommandProperty, 
+                vm => vm.NewPageCommand);
+#pragma warning restore 612
         }
 
         /// <summary>

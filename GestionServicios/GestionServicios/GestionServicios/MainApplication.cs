@@ -19,40 +19,6 @@ namespace GestionServicios
 
             // The root page of your application
             MainPage = navigationPage;
-
-            //var test = new TabbedPage()
-            //{
-            //    Title = "Servicios",
-            //    Children =
-            //    {
-            //        new Page()
-            //        {
-            //            Title = "weifhwiefuhweuf"
-            //        },
-            //        new Page()
-            //        {
-            //            Title = "sERVCRIWFWEJF"
-            //        },
-            //        new Page()
-            //        {
-            //            Title = "weifhwiefuhweuf"
-            //        },
-            //        new Page()
-            //        {
-            //            Title = "sERVCRIWFWEJF"
-            //        },
-            //        new Page()
-            //        {
-            //            Title = "weifhwiefuhweuf"
-            //        },
-            //        new Page()
-            //        {
-            //            Title = "sERVCRIWFWEJF"
-            //        }
-            //    }
-            //};
-            //;
-            //MainPage = new NavigationPage(test);
         }
 
         protected override void OnStart()
