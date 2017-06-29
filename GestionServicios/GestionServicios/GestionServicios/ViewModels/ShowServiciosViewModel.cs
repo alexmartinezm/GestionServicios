@@ -25,13 +25,10 @@ namespace GestionServicios.ViewModels
 
         public CreateServicioCommand CreateServicioCommand { get; set; }
 
-        //public CreateServicioMasterView PageRequested { get; }
-
         #endregion
 
         public ShowServiciosViewModel(MemoryContext context)
         {
-            //PageRequested = new CreateServicioMasterView(context);
             CreateServicioCommand = new CreateServicioCommand();
             ServiciosList = new ObservableCollection<Servicio>(ServiciosMock.Servicios);
         }
