@@ -17,7 +17,8 @@ namespace GestionServicios.Mocks.Mocks
                 Fecha = DateTime.UtcNow,
                 Lugar = new Lugar()
                 {
-                    Calle = CallesMock.Calles.ElementAt(0)
+                    Calle = CallesMock.Calles.ElementAt(0),
+                    Numero = 3
                 },
             },
             new Servicio
@@ -27,7 +28,8 @@ namespace GestionServicios.Mocks.Mocks
                 Fecha = DateTime.UtcNow,
                 Lugar = new Lugar()
                 {
-                    Calle = CallesMock.Calles.ElementAt(2)
+                    Calle = CallesMock.Calles.ElementAt(2),
+                    Numero = 91
                 },
                 Vehiculos = new ObservableCollection<Vehiculo>
                 {

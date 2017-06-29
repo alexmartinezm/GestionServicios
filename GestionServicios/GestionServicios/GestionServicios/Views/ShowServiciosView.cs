@@ -1,11 +1,14 @@
-﻿using GestionServicios.Domain.MemoryContext;
+﻿using GestionServicios.Converters;
+using GestionServicios.Domain.MemoryContext;
 using GestionServicios.Domain.Models;
+using GestionServicios.Resources;
 using GestionServicios.ViewModels;
+using GestionServicios.Views.Base;
 using Xamarin.Forms;
 
 namespace GestionServicios.Views
 {
-    internal class ShowServiciosView : ContentPage
+    internal class ShowServiciosView : ContentPage, IBaseView
     {
         #region Fields
 
@@ -19,19 +22,19 @@ namespace GestionServicios.Views
         public ShowServiciosView(MemoryContext context)
         {
             InitControls();
-            BuildControls();
+            BuildView();
 
             BindingContext = new ShowServiciosViewModel(context);
         }
 
         #endregion
 
-        #region Methods
+        #region IBaseView implementation
 
         /// <summary>
         /// Inicializa los controles de la vista.
         /// </summary>
-        private void InitControls()
+        public void InitControls()
         {
             _serviciosListView = new ListView()
             {
@@ -47,7 +50,8 @@ namespace GestionServicios.Views
                     fechaLabel.SetBinding(Label.TextProperty, nameof(Servicio.Fecha));
                     // Deshabilitamos la advertencia que indica que está obsoleto
 #pragma warning disable 612
-                    lugarLabel.SetBinding<Servicio>(Label.TextProperty, s => s.Lugar.Calle.Valor);
+                    lugarLabel.SetBinding<Servicio>(Label.TextProperty, s => s.Lugar,
+                        BindingMode.Default, new LugarToReadableConverter());
                     agenteLabel.SetBinding<Servicio>(Label.TextProperty, s => s.Agente.Tip);
                     isValidImage.SetBinding(Image.SourceProperty, nameof(Servicio.IsValid));
 #pragma warning restore 612
@@ -93,12 +97,13 @@ namespace GestionServicios.Views
         /// <summary>
         /// Construye y muestra la vista.
         /// </summary>
-        private void BuildControls()
+        public void BuildView()
         {
-            Title = "Gestión de servicios";
+            Title = AppResources.NombreApp;
             ToolbarItems.Add(_createServicioToolbarItem);
             Content = new StackLayout
             {
+                Padding = 5,
                 Children =
                 {
                     _serviciosListView

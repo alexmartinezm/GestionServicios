@@ -35,8 +35,19 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Commands\SaveServicioCommand.cs" />
     <Compile Include="MainApplication.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\AppResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AppResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Validators\AgenteValidator.cs" />
+    <Compile Include="Validators\LugarValidator.cs" />
+    <Compile Include="Validators\PersonaValidator.cs" />
+    <Compile Include="Validators\ServicioValidator.cs" />
+    <Compile Include="Validators\VehiculoValidator.cs" />
     <Compile Include="ViewModels\Base\BaseViewModel.cs" />
     <Compile Include="Views\CreateAgenteView.cs" />
     <Compile Include="ViewModels\CreateAgenteViewModel.cs" />
@@ -49,6 +60,8 @@
     <Compile Include="Views\CreateVehiculosView.cs" />
     <Compile Include="Views\Base\IBaseView.cs" />
     <Compile Include="ViewModels\CreateVehiculosViewModel.cs" />
+    <Compile Include="ViewModels\CreateServicioMasterViewModel.cs" />
+    <Compile Include="Converters\LugarToReadableConverter.cs" />
     <Compile Include="Views\ShowResumenView.cs" />
     <Compile Include="Views\CreateServicioView.cs" />
     <Compile Include="ViewModels\ShowResumenViewModel.cs" />
@@ -56,6 +69,10 @@
     <Compile Include="ViewModels\ShowServiciosViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="FluentValidation, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7de548da2fbae0f0, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\FluentValidation.7.0.2\lib\netstandard1.0\FluentValidation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Xamarin.Forms.Core, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Xamarin.Forms.2.3.4.247\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.Core.dll</HintPath>
       <Private>True</Private>
@@ -72,7 +89,9 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Styles\" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\GestionServicios.Core\GestionServicios.Core.csproj">
       <Project>{7f0fb177-673b-4bbb-a003-35c4d2fc7b28}</Project>
@@ -86,6 +105,12 @@
       <Project>{731e4218-fef7-4b44-bfd2-d51b7d3e230c}</Project>
       <Name>GestionServicios.Mocks</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\AppResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Forms.2.3.4.247\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.2.3.4.247\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets')" />

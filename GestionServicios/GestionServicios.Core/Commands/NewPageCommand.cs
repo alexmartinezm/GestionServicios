@@ -19,6 +19,8 @@ namespace GestionServicios.Core.Commands
             _page = (TPage)Activator.CreateInstance(typeof(TPage), args);
         }
 
+        #region ICommand implementation
+
         public bool CanExecute(object parameter)
         {
             return true;
@@ -30,5 +32,7 @@ namespace GestionServicios.Core.Commands
         }
 
         public event EventHandler CanExecuteChanged;
+
+        #endregion
     }
 }

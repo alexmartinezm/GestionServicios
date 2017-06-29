@@ -6,13 +6,13 @@ namespace GestionServicios.Domain.Models
     {
         #region Fields
 
-        private int _tip;
+        private int? _tip;
 
         #endregion
 
         #region Properties
 
-        public int Tip
+        public int? Tip
         {
             get { return _tip; }
             set { _tip = value; RaiseOnPropertyChanged(); }

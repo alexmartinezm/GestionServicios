@@ -1,4 +1,5 @@
 ﻿using GestionServicios.Domain.MemoryContext;
+using GestionServicios.Resources;
 using GestionServicios.ViewModels;
 using GestionServicios.Views.Base;
 using Xamarin.Forms;
@@ -23,7 +24,7 @@ namespace GestionServicios.Views
 
         public void BuildView()
         {
-            Title = "Servicio";
+            Title = AppResources.Servicio;
         }
 
         #endregion
