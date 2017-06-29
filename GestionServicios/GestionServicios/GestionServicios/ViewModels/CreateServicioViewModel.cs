@@ -1,7 +1,10 @@
-﻿using GestionServicios.Domain.MemoryContext;
+﻿using System;
+using GestionServicios.Domain.MemoryContext;
 using GestionServicios.Domain.Models;
 using GestionServicios.Repository.Factories;
 using GestionServicios.ViewModels.Base;
+using GestionServicios.ViewModels.Interfaces;
+using Xamarin.Forms;
 
 namespace GestionServicios.ViewModels
 {
@@ -26,12 +29,9 @@ namespace GestionServicios.ViewModels
         public CreateServicioViewModel(MemoryContext context)
         {
             CurrentServicio = new EntityFactory<Servicio>().Create();
+
+            var servicio = new RepositoryInMemoryFactory<Servicio>(context).Instance.Create(CurrentServicio);
+            MessagingCenter.Send(servicio, "ServicioCreado");
         }
-
-    }
-
-    internal interface IServicioModule
-    {
-        Servicio CurrentServicio { get; set; }
     }
 }

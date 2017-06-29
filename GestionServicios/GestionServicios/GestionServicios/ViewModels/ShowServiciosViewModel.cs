@@ -3,7 +3,9 @@ using GestionServicios.Commands;
 using GestionServicios.Domain.MemoryContext;
 using GestionServicios.Domain.Models;
 using GestionServicios.Mocks.Mocks;
+using GestionServicios.Repository.Factories;
 using GestionServicios.ViewModels.Base;
+using Xamarin.Forms;
 
 namespace GestionServicios.ViewModels
 {
@@ -30,7 +32,12 @@ namespace GestionServicios.ViewModels
         public ShowServiciosViewModel(MemoryContext context)
         {
             CreateServicioCommand = new CreateServicioCommand();
-            ServiciosList = new ObservableCollection<Servicio>(ServiciosMock.Servicios);
+            var repo = new RepositoryInMemoryFactory<Servicio>(context).Instance;
+            ServiciosList = new ObservableCollection<Servicio>(repo.Find(r => true));
+            MessagingCenter.Subscribe<Servicio>(this, "ServicioCreado", (servicio) =>
+            {
+                ServiciosList.Add(servicio);
+            });
         }
     }
 }

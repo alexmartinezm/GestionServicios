@@ -1,6 +1,8 @@
 ﻿using GestionServicios.Domain.MemoryContext;
 using GestionServicios.Resources;
+using GestionServicios.Styles;
 using GestionServicios.ViewModels;
+using GestionServicios.ViewModels.Interfaces;
 using GestionServicios.Views.Base;
 using Xamarin.Forms;
 
@@ -22,10 +24,7 @@ namespace GestionServicios.Views
 
         public void InitControls()
         {
-            _fechaDatePicker = new DatePicker
-            {
-                HorizontalOptions = LayoutOptions.CenterAndExpand
-            };
+            _fechaDatePicker = new DatePicker();
 
             _descripcionEditor = new Editor
             {
@@ -50,14 +49,21 @@ namespace GestionServicios.Views
                 Padding = 5,
                 Children =
                 {
-                    new Label
+                    new StackLayout()
                     {
-                        Text = AppResources.Fecha
+                        Children =
+                        {
+                            new Label
+                            {
+                                Style = new CustomStyles().DefaultLabels(),
+                                Text = AppResources.Fecha
+                            },
+                            _fechaDatePicker
+                        }
                     },
-                    _fechaDatePicker,
                     new Label
                     {
-                        Margin = new Thickness(20).Top,
+                        Style = new CustomStyles().DefaultLabels(),
                         Text = AppResources.Descripcion
                     },
                     _descripcionEditor

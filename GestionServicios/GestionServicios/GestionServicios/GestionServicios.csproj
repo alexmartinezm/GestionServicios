@@ -50,6 +50,7 @@
     <Compile Include="Validators\ServicioValidator.cs" />
     <Compile Include="Validators\VehiculoValidator.cs" />
     <Compile Include="ViewModels\Base\BaseViewModel.cs" />
+    <Compile Include="ViewModels\Interfaces\IServicioModule.cs" />
     <Compile Include="Views\CreateAgenteView.cs" />
     <Compile Include="ViewModels\CreateAgenteViewModel.cs" />
     <Compile Include="Views\CreateLugarView.cs" />
@@ -63,6 +64,7 @@
     <Compile Include="ViewModels\CreateVehiculosViewModel.cs" />
     <Compile Include="ViewModels\CreateServicioMasterViewModel.cs" />
     <Compile Include="Converters\LugarToReadableConverter.cs" />
+    <Compile Include="Styles\CustomStyles.cs" />
     <Compile Include="Views\ShowResumenView.cs" />
     <Compile Include="Views\CreateServicioView.cs" />
     <Compile Include="ViewModels\ShowResumenViewModel.cs" />
@@ -90,9 +92,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Styles\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\..\GestionServicios.Core\GestionServicios.Core.csproj">
       <Project>{7f0fb177-673b-4bbb-a003-35c4d2fc7b28}</Project>
