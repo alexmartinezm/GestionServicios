@@ -1,9 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using GestionServicios.Core.Repositories.Interfaces;
-using GestionServicios.Domain.Models;
 using GestionServicios.Domain.Models.Base;
 
 namespace GestionServicios.Core.Repositories
@@ -59,28 +57,6 @@ namespace GestionServicios.Core.Repositories
             _memoryContext.GetList<TEntity>().Insert(position, entityToUpdate);
 
             return _memoryContext.GetList<TEntity>().FirstOrDefault(e => e.Id == entityToUpdate.Id) != null;
-        }
-    }
-
-    public interface IMemoryContext
-    {
-        IList<TEntity> GetList<TEntity>() where TEntity : BaseModel, new();
-    }
-
-    public class MemoryContext : IMemoryContext
-    {
-        public IList<Agente> Agentes { get; set; } = new List<Agente>();
-        public IList<Vehiculo> Vehiculos { get; set; } = new List<Vehiculo>();
-        public IList<Servicio> Servicios { get; set; } = new List<Servicio>();
-        public IList<Calle> Calles { get; set; } = new List<Calle>();
-        public IList<Persona> Personas { get; set; } = new List<Persona>();
-        public IList<Lugar> Lugares { get; set; } = new List<Lugar>();
-
-        public IList<TEntity> GetList<TEntity>() where TEntity : BaseModel, new()
-        {
-            var props = GetType().GetRuntimeProperties();
-            var propertyInfo = props.FirstOrDefault(info => info.PropertyType == typeof(IList<TEntity>));
-            return propertyInfo.GetValue(this) as IList<TEntity>;
         }
     }
 }

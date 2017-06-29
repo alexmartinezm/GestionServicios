@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using GestionServicios.Core.Repositories;
 using GestionServicios.Domain.Models;
 using NUnit.Framework;
@@ -8,27 +7,31 @@ namespace GestionServiciosUnitTest.Tests
     [TestFixture]
     public class RepositoryTest
     {
-        private RepositoryInMemory<Servicio> _repositoryBase;
+        private RepositoryInMemory<Servicio> _repositoryServicio;
+        private RepositoryInMemory<Vehiculo> _repositoryVehiculo;
+        private MemoryContext _context;
 
         [SetUp]
         public void SetUp()
         {
-            _repositoryBase = new RepositoryInMemory<Servicio>(new MemoryContext());
-        }    
+            _context = new MemoryContext();
+            _repositoryServicio = new RepositoryInMemory<Servicio>(_context);
+            _repositoryVehiculo = new RepositoryInMemory<Vehiculo>(_context);
+        }
 
         [Test]
         public void AddEntityTest()
         {
             var servicio = new Servicio();
-            _repositoryBase.Create(servicio);
-            Assert.AreEqual(1, _repositoryBase.Find(s => s.Id == servicio.Id).Count);
+            _repositoryServicio.Create(servicio);
+            Assert.AreEqual(1, _repositoryServicio.Find(s => s.Id == servicio.Id).Count);
         }
 
         [Test]
         public void FindEntityTest()
         {
             var num = 10;
-            _repositoryBase.Create(new Servicio()
+            _repositoryServicio.Create(new Servicio()
             {
                 Lugar = new Lugar()
                 {
@@ -40,8 +43,8 @@ namespace GestionServiciosUnitTest.Tests
                 }
             });
 
-            var serviciosNotFound = _repositoryBase.Find(s => s.Lugar.Calle.Valor.Equals("me lo invento"));
-            var serviciosFound = _repositoryBase.Find(s => s.Lugar.Numero == num);
+            var serviciosNotFound = _repositoryServicio.Find(s => s.Lugar.Calle.Valor.Equals("me lo invento"));
+            var serviciosFound = _repositoryServicio.Find(s => s.Lugar.Numero == num);
 
             Assert.AreEqual(0, serviciosNotFound.Count);
             Assert.AreEqual(1, serviciosFound.Count);
@@ -57,11 +60,11 @@ namespace GestionServiciosUnitTest.Tests
             };
 
             // Lo añadimos al repositorio
-            _repositoryBase.Create(servicio);
+            _repositoryServicio.Create(servicio);
 
             // Lo modificamos
             servicio.Descripcion = "Me he actualizado";
-            var updated = _repositoryBase.Update(servicio);
+            var updated = _repositoryServicio.Update(servicio);
 
             Assert.IsTrue(updated);
         }
@@ -88,21 +91,21 @@ namespace GestionServiciosUnitTest.Tests
             };
 
             // Los añadimos al repositorio
-            _repositoryBase.Create(servicio1);
-            _repositoryBase.Create(servicio2);
-            _repositoryBase.Create(servicio3);
-            _repositoryBase.Create(servicio4);
+            _repositoryServicio.Create(servicio1);
+            _repositoryServicio.Create(servicio2);
+            _repositoryServicio.Create(servicio3);
+            _repositoryServicio.Create(servicio4);
 
             // Actualizamos el objeto servicio2
             servicio2.Descripcion = "Segundo servicio, actualizado!";
-            var result = _repositoryBase.Update(servicio2);
+            var result = _repositoryServicio.Update(servicio2);
 
             // Comprobamos si se ha actualizado
             Assert.IsTrue(result);
 
             // Comprobamos si la posición del objeto, dentro de la lista, ha cambiado
-            Assert.AreEqual(1, _repositoryBase.Find(s => true).IndexOf(servicio2));
-            Assert.AreEqual(3, _repositoryBase.Find(s => true).IndexOf(servicio4));
+            Assert.AreEqual(1, _repositoryServicio.Find(s => true).IndexOf(servicio2));
+            Assert.AreEqual(3, _repositoryServicio.Find(s => true).IndexOf(servicio4));
         }
 
         [Test]
@@ -116,10 +119,10 @@ namespace GestionServiciosUnitTest.Tests
             };
 
             // Lo añadimos al repositorio
-            _repositoryBase.Create(servicio);
+            _repositoryServicio.Create(servicio);
 
             // Eliminamos el objeto del repositorio
-            var result = _repositoryBase.Delete(s => s.Descripcion.Equals(desc));
+            var result = _repositoryServicio.Delete(s => s.Descripcion.Equals(desc));
 
             // Comprobamos la cantidad de elementos borrados
             Assert.AreEqual(1, result);
@@ -139,14 +142,41 @@ namespace GestionServiciosUnitTest.Tests
             };
 
             // Lo añadimos al repositorio
-            _repositoryBase.Create(servicio1);
-            _repositoryBase.Create(servicio2);
+            _repositoryServicio.Create(servicio1);
+            _repositoryServicio.Create(servicio2);
 
             // Eliminamos todos los objetos del repositorio
-            var result = _repositoryBase.Delete(s => true);
+            var result = _repositoryServicio.Delete(s => true);
 
             // Comprobamos la cantidad de elementos borrados
             Assert.AreEqual(2, result);
+        }
+
+        [Test]
+        public void InteractWithTwoRepositories()
+        {
+            // Creamos dos entidades
+            var vehiculo = new Vehiculo()
+            {
+                Matricula = "3376-DFF",
+                Propietario = new Persona()
+                {
+                    Dni = "53728312S"
+                }
+            };
+
+            var servicio = new Servicio()
+            {
+                Descripcion = "Robo de piruletas."
+            };
+
+            // Los añadimos al contexto
+            _repositoryVehiculo.Create(vehiculo);
+            _repositoryServicio.Create(servicio);
+
+            // Comprobamos la inserción
+            Assert.AreEqual(1, _context.Vehiculos.Count);
+            Assert.AreEqual(1, _context.Servicios.Count);
         }
     }
 }
