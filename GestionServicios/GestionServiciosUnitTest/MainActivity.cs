@@ -2,6 +2,7 @@
 using Android.App;
 using Android.OS;
 using Xamarin.Android.NUnitLite;
+using Xamarin.Forms;
 
 namespace GestionServiciosUnitTest
 {
@@ -17,6 +18,8 @@ namespace GestionServiciosUnitTest
 
             // Once you called base.OnCreate(), you cannot add more assemblies.
             base.OnCreate(bundle);
+
+            Forms.Init(this, bundle);
         }
     }
 }

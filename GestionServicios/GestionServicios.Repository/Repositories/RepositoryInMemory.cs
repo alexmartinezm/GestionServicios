@@ -1,10 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using GestionServicios.Core.Repositories.Interfaces;
 using GestionServicios.Domain.Models.Base;
+using GestionServicios.Repository.Repositories.Interfaces;
 
-namespace GestionServicios.Core.Repositories
+namespace GestionServicios.Repository.Repositories
 {
     public class RepositoryInMemory<TEntity> : IRepositoryBase<TEntity> where TEntity : BaseModel, new()
     {

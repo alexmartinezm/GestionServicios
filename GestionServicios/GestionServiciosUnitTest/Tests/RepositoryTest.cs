@@ -1,5 +1,5 @@
-using GestionServicios.Core.Repositories;
 using GestionServicios.Domain.Models;
+using GestionServicios.Repository.Repositories;
 using NUnit.Framework;
 
 namespace GestionServiciosUnitTest.Tests

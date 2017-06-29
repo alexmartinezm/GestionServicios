@@ -1,4 +1,5 @@
-﻿using GestionServicios.Views;
+﻿using GestionServicios.Core.Navigation;
+using GestionServicios.Views;
 using Xamarin.Forms;
 
 namespace GestionServicios

@@ -12,7 +12,8 @@ namespace GestionServicios.Domain.Models.Base
         /// <summary>
         /// ID de la entidad
         /// </summary>
-        public int Id { get; }
+        //[AutoIncrement, PrimaryKey]
+        public int Id { get; set; }
 
         protected BaseModel()
         {

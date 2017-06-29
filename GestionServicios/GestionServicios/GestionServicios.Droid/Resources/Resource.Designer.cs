@@ -26,6 +26,8 @@ namespace GestionServicios.Droid
 		
 		public static void UpdateIdValues()
 		{
+			global::GestionServicios.Droid.Sqlite.Resource.String.ApplicationName = global::GestionServicios.Droid.Resource.String.ApplicationName;
+			global::GestionServicios.Droid.Sqlite.Resource.String.Hello = global::GestionServicios.Droid.Resource.String.Hello;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.actionBarSize = global::GestionServicios.Droid.Resource.Attribute.actionBarSize;
 		}
 		
@@ -2927,6 +2929,12 @@ namespace GestionServicios.Droid
 		
 		public partial class String
 		{
+			
+			// aapt resource value: 0x7f080027
+			public const int ApplicationName = 2131230759;
+			
+			// aapt resource value: 0x7f080026
+			public const int Hello = 2131230758;
 			
 			// aapt resource value: 0x7f08000f
 			public const int abc_action_bar_home_description = 2131230735;

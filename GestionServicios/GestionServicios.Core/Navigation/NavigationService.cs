@@ -1,6 +1,6 @@
 using Xamarin.Forms;
 
-namespace GestionServicios
+namespace GestionServicios.Core.Navigation
 {
     /// <summary>
     /// Servicio que se encarga de navegar entre las pantallas de la app.

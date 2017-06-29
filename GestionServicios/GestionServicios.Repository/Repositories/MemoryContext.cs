@@ -4,7 +4,7 @@ using System.Reflection;
 using GestionServicios.Domain.Models;
 using GestionServicios.Domain.Models.Base;
 
-namespace GestionServicios.Core.Repositories
+namespace GestionServicios.Repository.Repositories
 {
     /// <summary>
     /// Contexto en memoria que contiene una lista por cada entidad.

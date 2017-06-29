@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using GestionServicios.Domain.Models.Base;
 
-namespace GestionServicios.Core.Repositories
+namespace GestionServicios.Repository.Repositories
 {
     public interface IMemoryContext
     {

@@ -1,6 +1,9 @@
 ﻿using Android.App;
 using Android.Content.PM;
 using Android.OS;
+using GestionServicios.Domain.DataContext;
+using GestionServicios.Droid.Sqlite;
+using Xamarin.Forms;
 
 namespace GestionServicios.Droid
 {
@@ -11,7 +14,11 @@ namespace GestionServicios.Droid
         {
             base.OnCreate(bundle);
 
-            Xamarin.Forms.Forms.Init(this, bundle);
+            Forms.Init(this, bundle);
+
+            DependencyService.Register<SqliteDroid>();
+            DependencyService.Register<SqliteDataContext>();
+
             LoadApplication(new MainApplication());
         }
     }
