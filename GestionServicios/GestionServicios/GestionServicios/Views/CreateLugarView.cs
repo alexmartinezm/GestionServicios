@@ -1,16 +1,17 @@
-﻿using GestionServicios.Domain.MemoryContext;
+using GestionServicios.Domain.MemoryContext;
 using GestionServicios.Views.Base;
 using Xamarin.Forms;
 
 namespace GestionServicios.Views
 {
-    internal class CreateServicioView : ContentPage, IBaseView
+    internal class CreateLugarView : ContentPage, IBaseView
     {
-        public CreateServicioView(MemoryContext context)
+        public CreateLugarView(MemoryContext context)
         {
             InitControls();
             BuildView();
-            BindingContext = new CreateServicioViewModel(context);
+
+            BindingContext = new CreateLugarViewModel(context);
         }
 
         #region IBaseView implementation
@@ -22,7 +23,7 @@ namespace GestionServicios.Views
 
         public void BuildView()
         {
-            Title = "Servicio";
+            Title = "Lugar";
         }
 
         #endregion

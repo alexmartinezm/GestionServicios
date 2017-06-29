@@ -90,6 +90,7 @@ namespace GestionServicios.Views
         /// </summary>
         private void BuildControls()
         {
+            Title = "Gestión de servicios";
             ToolbarItems.Add(_createServicioToolbarItem);
             Content = new StackLayout
             {

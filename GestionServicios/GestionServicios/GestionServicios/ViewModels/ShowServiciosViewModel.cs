@@ -24,13 +24,13 @@ namespace GestionServicios.ViewModels
             set { _serviciosList = value; RaiseOnPropertyChanged(); }
         }
 
-        public NewPageCommand<CreateServicioView> NewPageCommand { get; set; }
+        public NewPageCommand<CreateServicioMasterView> NewPageCommand { get; set; }
 
         #endregion
 
         public ShowServiciosViewModel(MemoryContext context)
         {
-            NewPageCommand = new NewPageCommand<CreateServicioView>();
+            NewPageCommand = new NewPageCommand<CreateServicioMasterView>(context);
             ServiciosList = new ObservableCollection<Servicio>(ServiciosMock.Servicios);
         }
     }

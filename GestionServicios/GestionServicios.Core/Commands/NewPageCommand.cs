@@ -6,16 +6,17 @@ using Xamarin.Forms;
 namespace GestionServicios.Core.Commands
 {
     /// <summary>
-    /// Command que navega a la pantalla TPage
+    /// Command que navega a la pantalla TPage con PushAsync.
     /// </summary>
-    /// <typeparam name="TPage"></typeparam>
-    public class NewPageCommand<TPage> : ICommand where TPage : Page, new()
+    /// <typeparam name="TPage">Pantalla que hereda de Page y es instanciable</typeparam>
+    public class NewPageCommand<TPage> : ICommand where TPage : Page
     {
         private readonly TPage _page;
 
-        public NewPageCommand()
+        public NewPageCommand(params object[] args)
         {
-            _page = new TPage();
+            //_page = new TPage();
+            _page = (TPage)Activator.CreateInstance(typeof(TPage), args);
         }
 
         public bool CanExecute(object parameter)
