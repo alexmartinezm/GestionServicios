@@ -35,6 +35,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Commands\CreateServicioCommand.cs" />
     <Compile Include="Commands\SaveServicioCommand.cs" />
     <Compile Include="MainApplication.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -104,6 +105,10 @@
     <ProjectReference Include="..\..\GestionServicios.Mocks\GestionServicios.Mocks.csproj">
       <Project>{731e4218-fef7-4b44-bfd2-d51b7d3e230c}</Project>
       <Name>GestionServicios.Mocks</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\GestionServicios.Repository\GestionServicios.Repository.csproj">
+      <Project>{ED793F68-1BC7-48BA-95EA-9F3FB859AAE4}</Project>
+      <Name>GestionServicios.Repository</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

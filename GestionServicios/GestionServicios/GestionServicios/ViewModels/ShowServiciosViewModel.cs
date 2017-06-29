@@ -1,10 +1,9 @@
 ﻿using System.Collections.ObjectModel;
-using GestionServicios.Core.Commands;
+using GestionServicios.Commands;
 using GestionServicios.Domain.MemoryContext;
 using GestionServicios.Domain.Models;
 using GestionServicios.Mocks.Mocks;
 using GestionServicios.ViewModels.Base;
-using GestionServicios.Views;
 
 namespace GestionServicios.ViewModels
 {
@@ -20,17 +19,20 @@ namespace GestionServicios.ViewModels
 
         public ObservableCollection<Servicio> ServiciosList
         {
-            get { return _serviciosList; }
+            get => _serviciosList;
             set { _serviciosList = value; RaiseOnPropertyChanged(); }
         }
 
-        public NewPageCommand<CreateServicioMasterView> NewPageCommand { get; set; }
+        public CreateServicioCommand CreateServicioCommand { get; set; }
+
+        //public CreateServicioMasterView PageRequested { get; }
 
         #endregion
 
         public ShowServiciosViewModel(MemoryContext context)
         {
-            NewPageCommand = new NewPageCommand<CreateServicioMasterView>(context);
+            //PageRequested = new CreateServicioMasterView(context);
+            CreateServicioCommand = new CreateServicioCommand();
             ServiciosList = new ObservableCollection<Servicio>(ServiciosMock.Servicios);
         }
     }

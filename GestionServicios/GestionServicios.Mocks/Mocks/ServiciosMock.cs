@@ -8,32 +8,32 @@ namespace GestionServicios.Mocks.Mocks
 {
     public class ServiciosMock
     {
-        public static IList<Servicio> Servicios = new List<Servicio>()
+        public static IList<Servicio> Servicios = new List<Servicio>
         {
             new Servicio
             {
                 Agente = AgentesMock.Agentes.ElementAt(0),
                 Descripcion = "Accidente múltiple en la ronda.",
                 Fecha = DateTime.UtcNow,
-                Lugar = new Lugar()
+                Lugar = new Lugar
                 {
                     Calle = CallesMock.Calles.ElementAt(0),
                     Numero = 3
-                },
+                }
             },
             new Servicio
             {
                 Agente = AgentesMock.Agentes.ElementAt(1),
                 Descripcion = "Estacionamiento incorrecto",
                 Fecha = DateTime.UtcNow,
-                Lugar = new Lugar()
+                Lugar = new Lugar
                 {
                     Calle = CallesMock.Calles.ElementAt(2),
                     Numero = 91
                 },
                 Vehiculos = new ObservableCollection<Vehiculo>
                 {
-                    new Vehiculo()
+                    new Vehiculo
                     {
                         Matricula = "8872-DWD",
                         Propietario = new Persona

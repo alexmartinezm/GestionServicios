@@ -3,7 +3,6 @@ using GestionServicios.Domain.MemoryContext;
 using GestionServicios.Views;
 using Xamarin.Forms;
 
-
 namespace GestionServicios
 {
     public class MainApplication : Application

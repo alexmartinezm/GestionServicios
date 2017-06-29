@@ -14,6 +14,7 @@ namespace GestionServicios.Views
 
         private ListView _serviciosListView;
         private ToolbarItem _createServicioToolbarItem;
+        private readonly MemoryContext _context;
 
         #endregion
 
@@ -21,6 +22,7 @@ namespace GestionServicios.Views
 
         public ShowServiciosView(MemoryContext context)
         {
+            _context = context;
             InitControls();
             BuildView();
 
@@ -36,7 +38,7 @@ namespace GestionServicios.Views
         /// </summary>
         public void InitControls()
         {
-            _serviciosListView = new ListView()
+            _serviciosListView = new ListView
             {
                 ItemTemplate = new DataTemplate(() =>
                 {
@@ -56,7 +58,7 @@ namespace GestionServicios.Views
                     isValidImage.SetBinding(Image.SourceProperty, nameof(Servicio.IsValid));
 #pragma warning restore 612
                     // Devolvemos un ViewCell con los controles creados
-                    var grid = new Grid()
+                    var grid = new Grid
                     {
                         VerticalOptions = LayoutOptions.FillAndExpand,
                         HorizontalOptions = LayoutOptions.FillAndExpand,
@@ -76,21 +78,19 @@ namespace GestionServicios.Views
                 })
             };
 
-#pragma warning disable 612
-            _serviciosListView.SetBinding<ShowServiciosViewModel>(ListView.ItemsSourceProperty, 
-                vm => vm.ServiciosList);
-#pragma warning restore 612
-
             _createServicioToolbarItem = new ToolbarItem
             {
                 Icon = new FileImageSource
                 {
-                    File = "ic_action_add.png"
-                }
-#pragma warning disable 612
+                    File = "ic_action_add.png",
+                },
+                CommandParameter = _context
             };
+#pragma warning disable 612
+            _serviciosListView.SetBinding<ShowServiciosViewModel>(ListView.ItemsSourceProperty,
+                vm => vm.ServiciosList);
             _createServicioToolbarItem.SetBinding<ShowServiciosViewModel>(MenuItem.CommandProperty, 
-                vm => vm.NewPageCommand);
+                vm => vm.CreateServicioCommand);
 #pragma warning restore 612
         }
 

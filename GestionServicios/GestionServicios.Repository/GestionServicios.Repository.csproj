@@ -35,6 +35,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Factories\EntityFactory.cs" />
+    <Compile Include="Factories\IFactory.cs" />
     <Compile Include="Factories\RepositoryInMemoryFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\Interfaces\IRepositoryBase.cs" />

@@ -32,11 +32,11 @@ namespace GestionServiciosUnitTest.Tests
         public void FindEntityTest()
         {
             var num = 10;
-            _repositoryServicio.Create(new Servicio()
+            _repositoryServicio.Create(new Servicio
             {
-                Lugar = new Lugar()
+                Lugar = new Lugar
                 {
-                    Calle = new Calle()
+                    Calle = new Calle
                     {
                         Valor = "Piruleta"
                     },
@@ -55,7 +55,7 @@ namespace GestionServiciosUnitTest.Tests
         public void UdpateEntityTest()
         {
             // Creamos un servicio
-            var servicio = new Servicio()
+            var servicio = new Servicio
             {
                 Descripcion = "Soy un nuevo servicio"
             };
@@ -74,19 +74,19 @@ namespace GestionServiciosUnitTest.Tests
         public void CheckEntitiesPositionAfterUpdatingTest()
         {
             // Creamos servicios
-            var servicio1 = new Servicio()
+            var servicio1 = new Servicio
             {
                 Descripcion = "Primer servicio"
             };
-            var servicio2 = new Servicio()
+            var servicio2 = new Servicio
             {
                 Descripcion = "Segundo servicio"
             };
-            var servicio3 = new Servicio()
+            var servicio3 = new Servicio
             {
                 Descripcion = "Tercer servicio"
             };
-            var servicio4 = new Servicio()
+            var servicio4 = new Servicio
             {
                 Descripcion = "Cuarto servicio"
             };
@@ -114,7 +114,7 @@ namespace GestionServiciosUnitTest.Tests
         {
             var desc = "Primer servicio";
             // Creamos servicios
-            var servicio = new Servicio()
+            var servicio = new Servicio
             {
                 Descripcion = desc
             };
@@ -133,11 +133,11 @@ namespace GestionServiciosUnitTest.Tests
         public void DeleteMultipleEntitiesTest()
         {
             // Creamos servicios
-            var servicio1 = new Servicio()
+            var servicio1 = new Servicio
             {
                 Descripcion = "Primer servicio"
             };
-            var servicio2 = new Servicio()
+            var servicio2 = new Servicio
             {
                 Descripcion = "Segundo servicio"
             };
@@ -157,16 +157,16 @@ namespace GestionServiciosUnitTest.Tests
         public void InteractWithTwoRepositories()
         {
             // Creamos dos entidades
-            var vehiculo = new Vehiculo()
+            var vehiculo = new Vehiculo
             {
                 Matricula = "3376-DFF",
-                Propietario = new Persona()
+                Propietario = new Persona
                 {
                     Dni = "53728312S"
                 }
             };
 
-            var servicio = new Servicio()
+            var servicio = new Servicio
             {
                 Descripcion = "Robo de piruletas."
             };

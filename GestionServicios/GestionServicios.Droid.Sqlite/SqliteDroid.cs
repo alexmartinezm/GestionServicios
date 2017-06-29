@@ -1,3 +1,4 @@
+using System;
 using System.IO;
 using GestionServicios.Core.IOC;
 using SQLite.Net;
@@ -12,7 +13,7 @@ namespace GestionServicios.Droid.Sqlite
         {
             const string sqliteFilename = "GestionServicios.db3";
 
-            var documentsPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
+            var documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
             var path = Path.Combine(documentsPath, sqliteFilename);
             DataBasePath = path;
             var plat = new SQLitePlatformAndroid();

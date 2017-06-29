@@ -18,7 +18,7 @@ namespace GestionServicios.ViewModels
 
         public Servicio Servicio
         {
-            get { return _servicio; }
+            get => _servicio;
             set { _servicio = value; RaiseOnPropertyChanged(); }
         }
 

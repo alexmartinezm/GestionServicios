@@ -23,7 +23,7 @@ namespace GestionServiciosUnitTest.Tests
             var agentesMocked = AgentesMock.Agentes;
             var max = callesMocked.Count + agentesMocked.Count;
 
-            var lugar = new Lugar()
+            var lugar = new Lugar
             {
                 Calle = callesMocked.ElementAt(0),
                 Numero = 2
@@ -35,18 +35,18 @@ namespace GestionServiciosUnitTest.Tests
 
             var vehiculosList = new ObservableCollection<Vehiculo>
             {
-                new Vehiculo()
+                new Vehiculo
                 {
                     Matricula = "8972-DDD",
-                    Propietario = new Persona()
+                    Propietario = new Persona
                     {
                         Dni = "32872317K"
                     }
                 },
-                new Vehiculo()
+                new Vehiculo
                 {
                     Matricula = "6623-BBJ",
-                    Propietario = new Persona()
+                    Propietario = new Persona
                     {
                         Dni = "73827321S"
                     }
@@ -54,20 +54,20 @@ namespace GestionServiciosUnitTest.Tests
             };
             max += vehiculosList.Count;
 
-            var personasList = new ObservableCollection<Persona>()
+            var personasList = new ObservableCollection<Persona>
             {
-                new Persona()
+                new Persona
                 {
                     Dni = "54672812S"
                 },
-                new Persona()
+                new Persona
                 {
                     Dni = "16728316J"
-                },
+                }
             };
             max += personasList.Count;
 
-            var servicio = new Servicio()
+            var servicio = new Servicio
             {
                 Fecha = DateTime.Now,
                 Descripcion = "Accidente múltiple en las inmediaciones de la rotonda de Sant Pepito.",
