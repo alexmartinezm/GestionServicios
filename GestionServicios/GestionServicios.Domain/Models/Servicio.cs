@@ -14,6 +14,7 @@ namespace GestionServicios.Domain.Models
         private Agente _agente;
         private ObservableCollection<Vehiculo> _vehiculos;
         private ObservableCollection<Persona> _personas;
+        private bool _isValid;
 
         #endregion
 
@@ -53,6 +54,12 @@ namespace GestionServicios.Domain.Models
         {
             get { return _personas; }
             set { _personas = value; RaiseOnPropertyChanged(); }
+        }
+
+        public bool IsValid
+        {
+            get { return _isValid; }
+            set { _isValid = value; RaiseOnPropertyChanged(); }
         }
 
         #endregion

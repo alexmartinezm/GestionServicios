@@ -26,8 +26,6 @@ namespace GestionServiciosUnitTest
 		
 		public static void UpdateIdValues()
 		{
-			global::GestionServicios.Droid.Sqlite.Resource.String.ApplicationName = global::GestionServiciosUnitTest.Resource.String.ApplicationName;
-			global::GestionServicios.Droid.Sqlite.Resource.String.Hello = global::GestionServiciosUnitTest.Resource.String.Hello;
 			global::Xamarin.Android.NUnitLite.Resource.Id.OptionHostName = global::GestionServiciosUnitTest.Resource.Id.OptionHostName;
 			global::Xamarin.Android.NUnitLite.Resource.Id.OptionPort = global::GestionServiciosUnitTest.Resource.Id.OptionPort;
 			global::Xamarin.Android.NUnitLite.Resource.Id.OptionRemoteServer = global::GestionServiciosUnitTest.Resource.Id.OptionRemoteServer;

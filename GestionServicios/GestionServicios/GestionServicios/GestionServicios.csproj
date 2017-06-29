@@ -37,6 +37,7 @@
   <ItemGroup>
     <Compile Include="MainApplication.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\Base\BaseViewModel.cs" />
     <Compile Include="Views\ShowServiciosView.cs" />
     <Compile Include="ViewModels\ShowServiciosViewModel.cs" />
   </ItemGroup>

@@ -37,6 +37,7 @@
   <ItemGroup>
     <Compile Include="Mocks\AgentesMock.cs" />
     <Compile Include="Mocks\CallesMock.cs" />
+    <Compile Include="Mocks\ServiciosMock.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
