@@ -12,7 +12,6 @@ namespace GestionServiciosUnitTest.Tests
         [SetUp]
         public void SetUp()
         {
-            DependencyService.Register<ISqlite>();
             DependencyService.Register<SqliteDroid>();
             DependencyService.Register<SqliteDataContext>();
         }

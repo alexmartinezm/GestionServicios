@@ -36,6 +36,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="DataContext\SqliteDataContext.cs" />
+    <Compile Include="MemoryContext\IMemoryContext.cs" />
+    <Compile Include="MemoryContext\MemoryContext.cs" />
     <Compile Include="Models\Agente.cs" />
     <Compile Include="Models\Base\BaseModel.cs" />
     <Compile Include="Models\Base\Handle Id\GenerateIdInMemory.cs" />

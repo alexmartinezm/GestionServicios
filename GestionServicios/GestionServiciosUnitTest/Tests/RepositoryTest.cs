@@ -1,3 +1,4 @@
+using GestionServicios.Domain.MemoryContext;
 using GestionServicios.Domain.Models;
 using GestionServicios.Repository.Repositories;
 using NUnit.Framework;
@@ -5,7 +6,7 @@ using NUnit.Framework;
 namespace GestionServiciosUnitTest.Tests
 {
     [TestFixture]
-    public class RepositoryTest
+    internal class RepositoryTest
     {
         private RepositoryInMemory<Servicio> _repositoryServicio;
         private RepositoryInMemory<Vehiculo> _repositoryVehiculo;

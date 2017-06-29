@@ -38,6 +38,7 @@
     <Compile Include="MainApplication.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\ShowServiciosView.cs" />
+    <Compile Include="ViewModels\ShowServiciosViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -56,9 +57,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ViewModels\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\..\GestionServicios.Core\GestionServicios.Core.csproj">
       <Project>{7f0fb177-673b-4bbb-a003-35c4d2fc7b28}</Project>

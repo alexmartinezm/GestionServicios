@@ -1,4 +1,5 @@
 ﻿using GestionServicios.Core.Navigation;
+using GestionServicios.Domain.MemoryContext;
 using GestionServicios.Views;
 using Xamarin.Forms;
 
@@ -8,8 +9,10 @@ namespace GestionServicios
     {
         public MainApplication()
         {
+            // Contexto InMemory
+            var context = new MemoryContext();
 
-            var navigationPage = new NavigationPage(new ShowServiciosView());
+            var navigationPage = new NavigationPage(new ShowServiciosView(context));
 
             NavigationService.Current = navigationPage;
 

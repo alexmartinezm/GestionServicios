@@ -1,4 +1,6 @@
-﻿using Xamarin.Forms;
+﻿using GestionServicios.Domain.MemoryContext;
+using GestionServicios.ViewModels;
+using Xamarin.Forms;
 
 namespace GestionServicios.Views
 {
@@ -13,10 +15,11 @@ namespace GestionServicios.Views
 
         #region Constructor
 
-        public ShowServiciosView()
+        public ShowServiciosView(MemoryContext context)
         {
             InitControls();
             BuildControls();
+            BindingContext = new ShowServiciosViewModel(context);
         }
 
         #endregion

@@ -107,6 +107,7 @@
     <Compile Include="Tests\DomainTest.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tests\FactoryTest.cs" />
     <Compile Include="Tests\RepositoryTest.cs" />
     <Compile Include="Tests\SqliteTest.cs" />
   </ItemGroup>
