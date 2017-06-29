@@ -72,6 +72,11 @@ namespace GestionServicios.Views
                 })
             };
 
+#pragma warning disable 612
+            _serviciosListView.SetBinding<ShowServiciosViewModel>(ListView.ItemsSourceProperty, 
+                vm => vm.ServiciosList);
+#pragma warning restore 612
+
             _createServicioToolbarItem = new ToolbarItem
             {
                 Icon = new FileImageSource

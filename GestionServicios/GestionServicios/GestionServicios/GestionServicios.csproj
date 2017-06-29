@@ -51,6 +51,7 @@
     <Compile Include="ViewModels\CreateVehiculosViewModel.cs" />
     <Compile Include="Views\ShowResumenView.cs" />
     <Compile Include="Views\CreateServicioView.cs" />
+    <Compile Include="ViewModels\ShowResumenViewModel.cs" />
     <Compile Include="Views\ShowServiciosView.cs" />
     <Compile Include="ViewModels\ShowServiciosViewModel.cs" />
   </ItemGroup>
