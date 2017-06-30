@@ -1,4 +1,3 @@
-using GestionServicios.Domain.MemoryContext;
 using GestionServicios.Resources;
 using GestionServicios.ViewModels;
 using GestionServicios.Views.Base;
@@ -8,12 +7,12 @@ namespace GestionServicios.Views
 {
     internal class CreateLugarView : ContentPage, IBaseView
     {
-        public CreateLugarView(MemoryContext context)
+        public CreateLugarView()
         {
             InitControls();
             BuildView();
 
-            BindingContext = new CreateLugarViewModel(context);
+            BindingContext = new CreateLugarViewModel();
         }
 
         #region IBaseView implementation

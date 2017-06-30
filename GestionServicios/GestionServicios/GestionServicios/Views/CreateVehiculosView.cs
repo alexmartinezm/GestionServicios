@@ -1,4 +1,3 @@
-using GestionServicios.Domain.MemoryContext;
 using GestionServicios.Resources;
 using GestionServicios.ViewModels;
 using GestionServicios.Views.Base;
@@ -8,12 +7,12 @@ namespace GestionServicios.Views
 {
     internal class CreateVehiculosView : ContentPage, IBaseView
     {
-        public CreateVehiculosView(MemoryContext context)
+        public CreateVehiculosView()
         {
             InitControls();
             BuildView();
 
-            BindingContext = new CreateVehiculosViewModel(context);
+            BindingContext = new CreateVehiculosViewModel();
         }
 
         #region IBaseView implementation

@@ -1,4 +1,3 @@
-using GestionServicios.Domain.MemoryContext;
 using GestionServicios.Resources;
 using GestionServicios.ViewModels;
 using GestionServicios.Views.Base;
@@ -8,12 +7,12 @@ namespace GestionServicios.Views
 {
     internal class ShowResumenView : ContentPage, IBaseView
     {
-        public ShowResumenView(MemoryContext context)
+        public ShowResumenView()
         {
             InitControls();
             BuildView();
 
-            BindingContext = new ShowResumenViewModel(context);
+            BindingContext = new ShowResumenViewModel();
         }
 
         #region IBaseView implementation

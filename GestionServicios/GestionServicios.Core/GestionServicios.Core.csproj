@@ -35,8 +35,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Behaviors\EditorBehavior.cs" />
     <Compile Include="Commands\NewPageCommand.cs" />
     <Compile Include="Custom controls\BindablePicker.cs" />
+    <Compile Include="Extensions\HasResultsListExtension.cs" />
     <Compile Include="IOC\Global.cs" />
     <Compile Include="IOC\ISqlite.cs" />
     <Compile Include="IOC\ISqliteContext.cs" />

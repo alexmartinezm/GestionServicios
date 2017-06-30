@@ -13,11 +13,11 @@ namespace GestionServicios
         public MainApplication()
         {
             // Contexto InMemory
-            var context = new MemoryContext();
+            var memoryContext = new MemoryContext();
 
-            FeedRepositoryInMemory(context);
+            FeedRepositoryInMemory(memoryContext);
 
-            var navigationPage = new NavigationPage(new ShowServiciosView(context));
+            var navigationPage = new NavigationPage(new ShowServiciosView(memoryContext));
 
             NavigationService.Current = navigationPage;
 

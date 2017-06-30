@@ -1,4 +1,3 @@
-using GestionServicios.Domain.MemoryContext;
 using GestionServicios.Resources;
 using GestionServicios.ViewModels;
 using GestionServicios.Views.Base;
@@ -8,12 +7,12 @@ namespace GestionServicios.Views
 {
     internal class CreateAgenteView : ContentPage, IBaseView
     {
-        public CreateAgenteView(MemoryContext context)
+        public CreateAgenteView()
         {
             InitControls();
             BuildView();
 
-            BindingContext = new CreateAgenteViewModel(context);
+            BindingContext = new CreateAgenteViewModel();
         }
 
         #region IBaseView implementation

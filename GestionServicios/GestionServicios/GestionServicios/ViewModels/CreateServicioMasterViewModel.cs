@@ -1,36 +1,42 @@
 using GestionServicios.Commands;
 using GestionServicios.Domain.MemoryContext;
 using GestionServicios.Domain.Models;
+using GestionServicios.Repository.Factories;
 using GestionServicios.ViewModels.Base;
+using GestionServicios.ViewModels.Interfaces;
 
 namespace GestionServicios.ViewModels
 {
-    internal class CreateServicioMasterViewModel : BaseViewModel
+    internal class CreateServicioMasterViewModel : BaseViewModel, IServicioModule, IHasSaveServicioCommand
     {
         #region Fields
 
-        private Servicio _servicio;
+        private Servicio _currentServicio;
 
         #endregion
 
         #region Properties
 
-
-        public Servicio Servicio
+        public Servicio CurrentServicio
         {
-            get => _servicio;
-            set { _servicio = value; RaiseOnPropertyChanged(); }
+            get { return _currentServicio; }
+            set { _currentServicio = value; RaiseOnPropertyChanged(); }
         }
 
         public SaveServicioCommand SaveServicioCommand { get; set; }
+
+        public CreateServicioViewModel ServicioViewModel { get; set; }
 
         #endregion
 
         #region Constructor
 
-        public CreateServicioMasterViewModel(MemoryContext context)
+        public CreateServicioMasterViewModel(MemoryContext context, Servicio selectedServicio = null)
         {
-            
+            ServicioViewModel = new CreateServicioViewModel();
+            SaveServicioCommand = new SaveServicioCommand(context);
+            CurrentServicio = selectedServicio ?? new EntityFactory<Servicio>().Create();
+            ServicioViewModel.CurrentServicio = CurrentServicio;
         }
 
         #endregion

@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 
 namespace GestionServicios.ViewModels.Base
 {
-    internal class BaseViewModel : INotifyPropertyChanged
+    internal class BaseViewModel : HandleView, INotifyPropertyChanged
     {
         #region INotifyPropertyChanged
 

@@ -1,9 +1,9 @@
 ﻿using GestionServicios.Converters;
 using GestionServicios.Domain.MemoryContext;
 using GestionServicios.Domain.Models;
-using GestionServicios.Repository.Factories;
 using GestionServicios.Resources;
 using GestionServicios.ViewModels;
+using GestionServicios.ViewModels.Interfaces;
 using GestionServicios.Views.Base;
 using Xamarin.Forms;
 
@@ -15,19 +15,19 @@ namespace GestionServicios.Views
 
         private ListView _serviciosListView;
         private ToolbarItem _createServicioToolbarItem;
-        private readonly MemoryContext _context;
+        private readonly MemoryContext _memoryContext;
 
         #endregion
 
         #region Constructor
 
-        public ShowServiciosView(MemoryContext context)
+        public ShowServiciosView(MemoryContext memoryContext)
         {
-            _context = context;
+            _memoryContext = memoryContext;
             InitControls();
             BuildView();
 
-            BindingContext = new ShowServiciosViewModel(context);
+            BindingContext = new ShowServiciosViewModel(memoryContext);
         }
 
         #endregion
@@ -85,14 +85,8 @@ namespace GestionServicios.Views
                 {
                     File = "ic_action_add.png",
                 },
-                CommandParameter = _context
+                CommandParameter = _memoryContext
             };
-#pragma warning disable 612
-            _serviciosListView.SetBinding<ShowServiciosViewModel>(ListView.ItemsSourceProperty,
-                vm => vm.ServiciosList);
-            _createServicioToolbarItem.SetBinding<ShowServiciosViewModel>(MenuItem.CommandProperty, 
-                vm => vm.CreateServicioCommand);
-#pragma warning restore 612
         }
 
         /// <summary>
@@ -110,8 +104,28 @@ namespace GestionServicios.Views
                     _serviciosListView
                 }
             };
+
+#pragma warning disable 612
+            _serviciosListView.SetBinding<IShowServicios>(ListView.ItemsSourceProperty,
+                i => i.ServiciosList);
+            _serviciosListView.SetBinding<IShowServicios>(ListView.SelectedItemProperty,
+                i => i.SelectedServicio);
+            _createServicioToolbarItem.SetBinding<IHasCreateServicioCommand>(MenuItem.CommandProperty,
+                i => i.CreateServicioCommand);
+#pragma warning restore 612
+        }
+
+        #endregion
+
+        #region Overrides
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            if (_serviciosListView != null) _serviciosListView.SelectedItem = null;
         }
 
         #endregion
     }
+
 }

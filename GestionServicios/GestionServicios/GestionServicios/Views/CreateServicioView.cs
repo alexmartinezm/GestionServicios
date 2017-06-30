@@ -1,7 +1,6 @@
-﻿using GestionServicios.Domain.MemoryContext;
+﻿using GestionServicios.Core.Behaviors;
 using GestionServicios.Resources;
 using GestionServicios.Styles;
-using GestionServicios.ViewModels;
 using GestionServicios.ViewModels.Interfaces;
 using GestionServicios.Views.Base;
 using Xamarin.Forms;
@@ -13,11 +12,10 @@ namespace GestionServicios.Views
         private DatePicker _fechaDatePicker;
         private Editor _descripcionEditor;
 
-        public CreateServicioView(MemoryContext context)
+        public CreateServicioView()
         {
             InitControls();
             BuildView();
-            BindingContext = new CreateServicioViewModel(context);
         }
 
         #region IBaseView implementation
@@ -28,16 +26,11 @@ namespace GestionServicios.Views
 
             _descripcionEditor = new Editor
             {
-                HeightRequest = 100,
+                MinimumHeightRequest = 20,
                 VerticalOptions = LayoutOptions.StartAndExpand
             };
 
-#pragma warning disable CS0612 // Type or member is obsolete
-            _fechaDatePicker.SetBinding<IServicioModule>(DatePicker.DateProperty, 
-                s => s.CurrentServicio.Fecha);
-            _descripcionEditor.SetBinding<IServicioModule>(Editor.TextProperty, 
-                s => s.CurrentServicio.Descripcion);
-#pragma warning restore CS0612 // Type or member is obsolete
+            _descripcionEditor.Behaviors.Add(new EditorBehavior());
         }
 
         public void BuildView()
@@ -72,5 +65,17 @@ namespace GestionServicios.Views
         }
 
         #endregion
+
+        protected override void OnBindingContextChanged()
+        {
+#pragma warning disable CS0612 // Type or member is obsolete
+            _fechaDatePicker.SetBinding<IServicioModule>(DatePicker.DateProperty,
+                s => s.CurrentServicio.Fecha);
+            _descripcionEditor.SetBinding<IServicioModule>(Editor.TextProperty,
+                s => s.CurrentServicio.Descripcion);
+#pragma warning restore CS0612 // Type or member is obsolete
+
+            base.OnBindingContextChanged();
+        }
     }
 }

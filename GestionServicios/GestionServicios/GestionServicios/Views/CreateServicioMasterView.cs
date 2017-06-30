@@ -1,6 +1,6 @@
-using GestionServicios.Domain.MemoryContext;
 using GestionServicios.Resources;
 using GestionServicios.ViewModels;
+using GestionServicios.ViewModels.Interfaces;
 using GestionServicios.Views.Base;
 using Xamarin.Forms;
 
@@ -9,19 +9,22 @@ namespace GestionServicios.Views
     internal class CreateServicioMasterView : TabbedPage, IBaseView
     {
         #region Fields
-
-        private readonly MemoryContext _context;
+        
         private ToolbarItem _saveToolbarItem;
+        private readonly CreateServicioMasterViewModel _viewModel;
 
         #endregion
 
         #region Constructor
 
-        public CreateServicioMasterView(MemoryContext context)
+        public CreateServicioMasterView(CreateServicioMasterViewModel viewModel)
         {
-            _context = context;
+            //_context = context;
+            _viewModel = viewModel;
             InitControls();
             BuildView();
+
+            BindingContext = _viewModel;
         }
 
         #endregion
@@ -39,8 +42,10 @@ namespace GestionServicios.Views
             };
 
 #pragma warning disable 612
-            _saveToolbarItem.SetBinding<CreateServicioMasterViewModel>(MenuItem.CommandProperty,
-                vm => vm.Servicio);
+            _saveToolbarItem.SetBinding<IHasSaveServicioCommand>(MenuItem.CommandProperty,
+                s => s.SaveServicioCommand);
+            _saveToolbarItem.SetBinding<IServicioModule>(MenuItem.CommandParameterProperty,
+                s => s.CurrentServicio);
 #pragma warning restore 612
         }
 
@@ -48,12 +53,13 @@ namespace GestionServicios.Views
         {
             Title = AppResources.CrearServicio;
             ToolbarItems.Add(_saveToolbarItem);
-            Children.Add(new CreateServicioView(_context));
-            Children.Add(new CreateLugarView(_context));
-            Children.Add(new CreateAgenteView(_context));
-            Children.Add(new CreateVehiculosView(_context));
-            Children.Add(new CreatePersonasView(_context));
-            Children.Add(new ShowResumenView(_context));
+            //Children.Add(new CreateServicioView(_viewModel));
+            //Children.Add(new CreateLugarView(_viewModel));
+            //Children.Add(new CreateAgenteView(_viewModel));
+            //Children.Add(new CreateVehiculosView(_viewModel));
+            //Children.Add(new CreatePersonasView(_viewModel));
+            //Children.Add(new ShowResumenView(_viewModel));
+            Children.Add((Page)_viewModel.ServicioViewModel.View);
         }
 
         #endregion

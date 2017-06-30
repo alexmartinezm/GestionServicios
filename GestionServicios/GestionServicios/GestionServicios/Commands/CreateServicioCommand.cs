@@ -2,6 +2,7 @@
 using System.Windows.Input;
 using GestionServicios.Core.Navigation;
 using GestionServicios.Domain.MemoryContext;
+using GestionServicios.ViewModels;
 using GestionServicios.Views;
 
 namespace GestionServicios.Commands
@@ -17,7 +18,12 @@ namespace GestionServicios.Commands
 
         public void Execute(object parameter)
         {
-            NavigationService.Current.PushAsync(new CreateServicioMasterView((MemoryContext)parameter));
+            var mainViewModel = new CreateServicioMasterViewModel((MemoryContext) parameter)
+            {
+                ServicioViewModel = {View = new CreateServicioView()}
+            };
+
+            NavigationService.Current.PushAsync(new CreateServicioMasterView(mainViewModel));
         }
 
         public event EventHandler CanExecuteChanged;
