@@ -2,6 +2,7 @@
 using System.Windows.Input;
 using GestionServicios.Core.Navigation;
 using GestionServicios.Domain.MemoryContext;
+using GestionServicios.Repository.Factories;
 using GestionServicios.ViewModels;
 using GestionServicios.Views;
 
@@ -20,7 +21,8 @@ namespace GestionServicios.Commands
         {
             var mainViewModel = new CreateServicioMasterViewModel((MemoryContext) parameter)
             {
-                ServicioViewModel = {View = new CreateServicioView()}
+                ServicioViewModel = {View = GenericFactory<CreateServicioView>.Create()},
+                LugarViewModel = {View = new CreateLugarView()}
             };
 
             NavigationService.Current.PushAsync(new CreateServicioMasterView(mainViewModel));

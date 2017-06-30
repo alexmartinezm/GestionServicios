@@ -2,9 +2,9 @@
 
 namespace GestionServicios.Repository.Factories
 {
-    public class EntityFactory<TEntity> : IFactory<TEntity> where TEntity : BaseModel, new()
+    public class GenericFactory<TEntity> where TEntity : new()
     {
-        public TEntity Create()
+        public static TEntity Create()
         {
             return new TEntity();
         }

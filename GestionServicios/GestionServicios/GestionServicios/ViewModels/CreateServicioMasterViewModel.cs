@@ -26,6 +26,7 @@ namespace GestionServicios.ViewModels
         public SaveServicioCommand SaveServicioCommand { get; set; }
 
         public CreateServicioViewModel ServicioViewModel { get; set; }
+        public CreateLugarViewModel LugarViewModel { get; set; }
 
         #endregion
 
@@ -33,10 +34,16 @@ namespace GestionServicios.ViewModels
 
         public CreateServicioMasterViewModel(MemoryContext context, Servicio selectedServicio = null)
         {
-            ServicioViewModel = new CreateServicioViewModel();
+            InitViewModels();
             SaveServicioCommand = new SaveServicioCommand(context);
-            CurrentServicio = selectedServicio ?? new EntityFactory<Servicio>().Create();
+            CurrentServicio = selectedServicio ?? GenericFactory<Servicio>.Create();
             ServicioViewModel.CurrentServicio = CurrentServicio;
+        }
+
+        private void InitViewModels()
+        {
+            ServicioViewModel = new CreateServicioViewModel();
+            LugarViewModel = new CreateLugarViewModel();
         }
 
         #endregion

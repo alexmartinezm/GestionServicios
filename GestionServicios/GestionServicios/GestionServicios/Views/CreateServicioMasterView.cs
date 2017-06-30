@@ -60,6 +60,7 @@ namespace GestionServicios.Views
             //Children.Add(new CreatePersonasView(_viewModel));
             //Children.Add(new ShowResumenView(_viewModel));
             Children.Add((Page)_viewModel.ServicioViewModel.View);
+            Children.Add((Page)_viewModel.LugarViewModel.View);
         }
 
         #endregion
