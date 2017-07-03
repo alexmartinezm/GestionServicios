@@ -41,14 +41,17 @@ namespace GestionServicios.ViewModels
                 RaiseOnPropertyChanged();
                 if (SelectedServicio != null)
                 {
-                    var mainViewModel =
-                        new CreateServicioMasterViewModel(_memoryContext, SelectedServicio)
-                    {
-                            ServicioViewModel = { View = new CreateServicioView() }
-                    };
+                    var masterViewModel = GenericFactory<CreateServicioMasterViewModel>.Create(_memoryContext,
+                    SelectedServicio);
+                    masterViewModel.ServicioViewModel.View = GenericFactory<CreateServicioView>.Create();
+                    masterViewModel.LugarViewModel.View = GenericFactory<CreateLugarView>.Create();
+                    masterViewModel.AgenteViewModel.View = GenericFactory<CreateAgenteView>.Create();
+                    masterViewModel.VehiculosViewModel.View = GenericFactory<CreateVehiculosView>.Create();
+                    masterViewModel.PersonasViewModel.View = GenericFactory<CreatePersonasView>.Create();
+                    masterViewModel.ResumenViewModel.View = GenericFactory<ShowResumenView>.Create();
 
                     NavigationService.Current
-                        .PushAsync(new CreateServicioMasterView(mainViewModel));
+                        .PushAsync(GenericFactory<CreateServicioMasterView>.Create(masterViewModel));
                 }
             }
         }

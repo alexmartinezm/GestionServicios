@@ -17,6 +17,10 @@ namespace GestionServicios.ViewModels
 
         #region Properties
 
+        public CreateServicioMasterViewModel()
+        {
+        }
+
         public Servicio CurrentServicio
         {
             get { return _currentServicio; }
@@ -27,6 +31,10 @@ namespace GestionServicios.ViewModels
 
         public CreateServicioViewModel ServicioViewModel { get; set; }
         public CreateLugarViewModel LugarViewModel { get; set; }
+        public CreateAgenteViewModel AgenteViewModel { get; set; }
+        public CreateVehiculosViewModel VehiculosViewModel { get; set; }
+        public CreatePersonasViewModel PersonasViewModel { get; set; }
+        public ShowResumenViewModel ResumenViewModel { get; set; }
 
         #endregion
 
@@ -42,8 +50,12 @@ namespace GestionServicios.ViewModels
 
         private void InitViewModels()
         {
-            ServicioViewModel = new CreateServicioViewModel();
-            LugarViewModel = new CreateLugarViewModel();
+            ServicioViewModel = GenericFactory<CreateServicioViewModel>.Create();
+            LugarViewModel = GenericFactory<CreateLugarViewModel>.Create();
+            AgenteViewModel = GenericFactory<CreateAgenteViewModel>.Create();
+            VehiculosViewModel = GenericFactory<CreateVehiculosViewModel>.Create();
+            PersonasViewModel = GenericFactory<CreatePersonasViewModel>.Create();
+            ResumenViewModel = GenericFactory<ShowResumenViewModel>.Create();
         }
 
         #endregion

@@ -19,13 +19,18 @@ namespace GestionServicios.Commands
 
         public void Execute(object parameter)
         {
-            var mainViewModel = new CreateServicioMasterViewModel((MemoryContext) parameter)
-            {
-                ServicioViewModel = {View = GenericFactory<CreateServicioView>.Create()},
-                LugarViewModel = {View = new CreateLugarView()}
-            };
+            // Especificamos null ya que el método CreateInstance no reconoce los parámetros con
+            // valor por defecto
+            var masterViewModel = GenericFactory<CreateServicioMasterViewModel>
+                .Create((MemoryContext)parameter, null);
+            masterViewModel.ServicioViewModel.View = GenericFactory<CreateServicioView>.Create();
+            masterViewModel.LugarViewModel.View = GenericFactory<CreateLugarView>.Create();
+            masterViewModel.AgenteViewModel.View = GenericFactory<CreateAgenteView>.Create();
+            masterViewModel.VehiculosViewModel.View = GenericFactory<CreateVehiculosView>.Create();
+            masterViewModel.PersonasViewModel.View = GenericFactory<CreatePersonasView>.Create();
+            masterViewModel.ResumenViewModel.View = GenericFactory<ShowResumenView>.Create();
 
-            NavigationService.Current.PushAsync(new CreateServicioMasterView(mainViewModel));
+            NavigationService.Current.PushAsync(GenericFactory<CreateServicioMasterView>.Create(masterViewModel));
         }
 
         public event EventHandler CanExecuteChanged;

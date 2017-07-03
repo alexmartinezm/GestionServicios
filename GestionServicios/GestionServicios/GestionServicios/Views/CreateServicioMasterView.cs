@@ -17,6 +17,10 @@ namespace GestionServicios.Views
 
         #region Constructor
 
+        public CreateServicioMasterView()
+        {
+        }
+
         public CreateServicioMasterView(CreateServicioMasterViewModel viewModel)
         {
             //_context = context;
@@ -53,14 +57,12 @@ namespace GestionServicios.Views
         {
             Title = AppResources.CrearServicio;
             ToolbarItems.Add(_saveToolbarItem);
-            //Children.Add(new CreateServicioView(_viewModel));
-            //Children.Add(new CreateLugarView(_viewModel));
-            //Children.Add(new CreateAgenteView(_viewModel));
-            //Children.Add(new CreateVehiculosView(_viewModel));
-            //Children.Add(new CreatePersonasView(_viewModel));
-            //Children.Add(new ShowResumenView(_viewModel));
             Children.Add((Page)_viewModel.ServicioViewModel.View);
             Children.Add((Page)_viewModel.LugarViewModel.View);
+            Children.Add((Page)_viewModel.AgenteViewModel.View);
+            Children.Add((Page)_viewModel.VehiculosViewModel.View);
+            Children.Add((Page)_viewModel.PersonasViewModel.View);
+            Children.Add((Page)_viewModel.ResumenViewModel.View);
         }
 
         #endregion

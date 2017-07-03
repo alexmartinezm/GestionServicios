@@ -11,7 +11,7 @@
 
 [assembly: global::Android.Runtime.ResourceDesignerAttribute("GestionServicios.Droid.Resource", IsApplication=true)]
 
-namespace GestionServicios.Droid.Resources
+namespace GestionServicios.Droid
 {
 	
 	
@@ -26,7 +26,7 @@ namespace GestionServicios.Droid.Resources
 		
 		public static void UpdateIdValues()
 		{
-			global::Xamarin.Forms.Platform.Android.Resource.Attribute.actionBarSize = global::GestionServicios.Droid.Resources.Resource.Attribute.actionBarSize;
+			global::Xamarin.Forms.Platform.Android.Resource.Attribute.actionBarSize = global::GestionServicios.Droid.Resource.Attribute.actionBarSize;
 		}
 		
 		public partial class Animation
