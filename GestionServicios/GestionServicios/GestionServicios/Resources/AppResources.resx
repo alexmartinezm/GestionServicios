@@ -138,6 +138,9 @@
   <data name="FechaError" xml:space="preserve">
     <value>Debes introducir la fecha.</value>
   </data>
+  <data name="IntroducirNumero" xml:space="preserve">
+    <value>Introduce el número</value>
+  </data>
   <data name="Lugar" xml:space="preserve">
     <value>Lugar</value>
   </data>
@@ -161,6 +164,9 @@
   </data>
   <data name="Resumen" xml:space="preserve">
     <value>Resumen</value>
+  </data>
+  <data name="SeleccionaCalle" xml:space="preserve">
+    <value>Selecciona la calle</value>
   </data>
   <data name="Servicio" xml:space="preserve">
     <value>Servicio</value>
