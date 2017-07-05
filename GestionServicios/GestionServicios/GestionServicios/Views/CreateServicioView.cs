@@ -42,7 +42,7 @@ namespace GestionServicios.Views
                 Padding = 5,
                 Children =
                 {
-                    new StackLayout()
+                    new StackLayout
                     {
                         Children =
                         {

@@ -10,12 +10,12 @@ namespace GestionServicios.Styles
             {
                 Setters =
                 {
-                    new Setter()
+                    new Setter
                     {
                         Property = Label.FontAttributesProperty,
                         Value = FontAttributes.Bold,
                     },
-                    new Setter()
+                    new Setter
                     {
                         Property = View.MarginProperty,
                         Value = new Thickness(10).Top,

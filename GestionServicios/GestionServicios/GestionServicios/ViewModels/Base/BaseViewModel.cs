@@ -9,7 +9,12 @@ namespace GestionServicios.ViewModels.Base
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        protected virtual void RaiseOnPropertyChanged([CallerMemberName] string propertyName = null)
+        public void OnPropertyChanged(PropertyChangedEventArgs args)
+        {
+            PropertyChanged?.Invoke(this, args);
+        }
+
+        public virtual void RaiseOnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }

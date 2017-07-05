@@ -1,5 +1,4 @@
 ﻿using System;
-using GestionServicios.Domain.Models.Base;
 
 namespace GestionServicios.Repository.Factories
 {

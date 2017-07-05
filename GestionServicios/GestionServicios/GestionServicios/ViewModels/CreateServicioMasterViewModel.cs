@@ -1,25 +1,25 @@
+using System.Collections.ObjectModel;
 using GestionServicios.Commands;
 using GestionServicios.Domain.MemoryContext;
 using GestionServicios.Domain.Models;
+using GestionServicios.Mocks.Mocks;
 using GestionServicios.Repository.Factories;
 using GestionServicios.ViewModels.Base;
 using GestionServicios.ViewModels.Interfaces;
 
 namespace GestionServicios.ViewModels
 {
-    internal class CreateServicioMasterViewModel : BaseViewModel, IServicioModule, IHasSaveServicioCommand
+    internal class CreateServicioMasterViewModel : BaseViewModel, 
+        IServicioModule, IHasCallesList, IHasSaveServicioCommand
     {
         #region Fields
 
         private Servicio _currentServicio;
+        private ObservableCollection<Calle> _callesList;
 
         #endregion
 
         #region Properties
-
-        public CreateServicioMasterViewModel()
-        {
-        }
 
         public Servicio CurrentServicio
         {
@@ -28,6 +28,12 @@ namespace GestionServicios.ViewModels
         }
 
         public SaveServicioCommand SaveServicioCommand { get; set; }
+
+        public ObservableCollection<Calle> CallesList
+        {
+            get { return _callesList; }
+            set { _callesList = value; RaiseOnPropertyChanged(); }
+        }
 
         public CreateServicioViewModel ServicioViewModel { get; set; }
         public CreateLugarViewModel LugarViewModel { get; set; }
@@ -40,13 +46,27 @@ namespace GestionServicios.ViewModels
 
         #region Constructor
 
+        public CreateServicioMasterViewModel()
+        {
+        }
+
         public CreateServicioMasterViewModel(MemoryContext context, Servicio selectedServicio = null)
         {
+            CallesList = new ObservableCollection<Calle>(CallesMock.Calles);
             InitViewModels();
             SaveServicioCommand = new SaveServicioCommand(context);
             CurrentServicio = selectedServicio ?? GenericFactory<Servicio>.Create();
             ServicioViewModel.CurrentServicio = CurrentServicio;
+            LugarViewModel.CurrentServicio = CurrentServicio;
+            //AgenteViewModel.CurrentServicio = CurrentServicio;
+            //VehiculosViewModel.CurrentServicio = CurrentServicio;
+            //PersonasViewModel.CurrentServicio = CurrentServicio;
+            //ResumenViewModel.CurrentServicio = CurrentServicio;
         }
+
+        #endregion
+
+        #region Methods
 
         private void InitViewModels()
         {

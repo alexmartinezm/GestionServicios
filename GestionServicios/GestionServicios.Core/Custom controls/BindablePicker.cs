@@ -6,7 +6,7 @@ using Xamarin.Forms;
 
 namespace GestionServicios.Core.Custom_controls
 {
-    public class BindablePicker : Picker
+    public class BindablePicker : Xamarin.Forms.Picker
     {
         private bool _disableNestedCalls;
 

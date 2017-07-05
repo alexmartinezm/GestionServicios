@@ -1,25 +1,24 @@
-using System.Collections.ObjectModel;
 using GestionServicios.Domain.Models;
-using GestionServicios.Mocks.Mocks;
 using GestionServicios.ViewModels.Base;
+using GestionServicios.ViewModels.Interfaces;
 
 namespace GestionServicios.ViewModels
 {
-    internal class CreateLugarViewModel : BaseViewModel
+    internal class CreateLugarViewModel : BaseViewModel, IServicioModule
     {
         #region Fields
 
-        private ObservableCollection<Calle> _callesList;
         private Lugar _selectedLugar;
+        private Servicio _currentServicio;
 
         #endregion
 
         #region Properties
 
-        public ObservableCollection<Calle> CallesList
+        public Servicio CurrentServicio
         {
-            get { return _callesList; }
-            set { _callesList = value; RaiseOnPropertyChanged(); }
+            get { return _currentServicio; }
+            set { _currentServicio = value; RaiseOnPropertyChanged(); }
         }
 
         public Lugar SelectedLugar
@@ -29,10 +28,5 @@ namespace GestionServicios.ViewModels
         }
 
         #endregion
-        public CreateLugarViewModel()
-        {
-            CallesList = new ObservableCollection<Calle>(CallesMock.Calles);
-        }
-
     }
 }

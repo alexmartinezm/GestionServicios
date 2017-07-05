@@ -56,6 +56,7 @@
     <Compile Include="Validators\VehiculoValidator.cs" />
     <Compile Include="ViewModels\Base\BaseViewModel.cs" />
     <Compile Include="ViewModels\Base\HandleView.cs" />
+    <Compile Include="ViewModels\Interfaces\IHasCallesList.cs" />
     <Compile Include="ViewModels\Interfaces\IHasCreateServicioCommand.cs" />
     <Compile Include="ViewModels\Interfaces\IHasSaveServicioCommand.cs" />
     <Compile Include="ViewModels\Interfaces\IServicioModule.cs" />

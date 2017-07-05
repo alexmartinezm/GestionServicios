@@ -1,7 +1,7 @@
 using GestionServicios.Core.Custom_controls;
 using GestionServicios.Domain.Models;
 using GestionServicios.Resources;
-using GestionServicios.ViewModels;
+using GestionServicios.ViewModels.Interfaces;
 using GestionServicios.Views.Base;
 using Xamarin.Forms;
 
@@ -11,7 +11,7 @@ namespace GestionServicios.Views
     {
         #region Controls
 
-        private BindablePicker _calleBindablePicker;
+        private Picker _calleBindablePicker;
         private Entry _calleEntry;
         private Label _numeroLabel;
         private Entry _numeroEntry;
@@ -22,28 +22,26 @@ namespace GestionServicios.Views
         {
             InitControls();
             BuildView();
-
-            BindingContext = new CreateLugarViewModel();
         }
 
         #region IBaseView implementation
 
         public void InitControls()
         {
-            _calleBindablePicker = new BindablePicker()
+            _calleBindablePicker = new BindablePicker
             {
                 Title = AppResources.SeleccionaCalle,
                 DisplayMemberPath = nameof(Calle.Valor),
-                SelectedValuePath = nameof(Calle.Valor)
+                SelectedValuePath = nameof(Calle.Valor),
             };
 
             _calleEntry = new Entry();
-            _numeroLabel = new Label()
+            _numeroLabel = new Label
             {
                 Text = AppResources.IntroducirNumero
             };
 
-            _numeroEntry = new Entry()
+            _numeroEntry = new Entry
             {
                 Keyboard = Keyboard.Numeric
             };
@@ -52,7 +50,7 @@ namespace GestionServicios.Views
         public void BuildView()
         {
             Title = AppResources.Lugar;
-            Content = new StackLayout()
+            Content = new StackLayout
             {
                 Padding = 5,
                 Children =
@@ -71,11 +69,14 @@ namespace GestionServicios.Views
         protected override void OnBindingContextChanged()
         {
 #pragma warning disable CS0612 // Type or member is obsolete
-            _calleBindablePicker.SetBinding<CreateLugarViewModel>(BindablePicker.ItemsSourceProperty,
-                vm => vm.CallesList);
-            _calleBindablePicker.SetBinding<CreateServicioMasterViewModel>(BindablePicker.SelectedItemProperty,
+
+            _calleBindablePicker.SetBinding<IHasCallesList>(BindablePicker.ItemsSourceProperty,
+                i => i.CallesList);
+            _calleBindablePicker.SetBinding<IServicioModule>(BindablePicker.SelectedItemProperty,
                 vm => vm.CurrentServicio.Lugar.Calle);
-            _numeroEntry.SetBinding<CreateServicioMasterViewModel>(Entry.TextProperty,
+            _calleBindablePicker.SetBinding<IServicioModule>(BindablePicker.SelectedValueProperty,
+                vm => vm.CurrentServicio.Lugar.Calle.Valor);
+            _numeroEntry.SetBinding<IServicioModule>(Entry.TextProperty,
                 vm => vm.CurrentServicio.Lugar.Numero);
 #pragma warning restore CS0612 // Type or member is obsolete
 
