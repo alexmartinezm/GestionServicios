@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using GestionServicios.Commands;
 using GestionServicios.Core.Navigation;
 using GestionServicios.Domain.MemoryContext;
@@ -58,10 +59,20 @@ namespace GestionServicios.ViewModels
             CreateServicioCommand = new CreateServicioCommand();
             var repo = new RepositoryInMemoryFactory<Servicio>(_memoryContext).Instance;
             ServiciosList = new ObservableCollection<Servicio>(repo.Find(r => true));
+
             MessagingCenter.Subscribe<Servicio>(this, MessagingResources.ServicioCreado, (servicio) =>
             {
-                ServiciosList.Add(servicio);
+                try
+                {
+                    ServiciosList.Add(servicio);
+                }
+                catch (Exception e)
+                {
+                    
+                    throw;
+                }
             });
+
             MessagingCenter.Subscribe<Servicio>(this, MessagingResources.ServicioActualizado, (servicio) =>
             {
                 var position = ServiciosList.IndexOf(servicio);

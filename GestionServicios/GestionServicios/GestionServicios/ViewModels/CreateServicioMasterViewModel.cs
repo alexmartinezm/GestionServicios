@@ -56,6 +56,7 @@ namespace GestionServicios.ViewModels
         {
             CallesList = new ObservableCollection<Calle>(CallesMock.Calles);
             InitViewModels();
+            InitViews();
             SaveServicioCommand = new SaveServicioCommand(context);
             CurrentServicio = selectedServicio ?? new ServicioFactory().Create();
             ServicioViewModel.CurrentServicio = CurrentServicio;
@@ -64,7 +65,6 @@ namespace GestionServicios.ViewModels
             //VehiculosViewModel.CurrentServicio = CurrentServicio;
             //PersonasViewModel.CurrentServicio = CurrentServicio;
             //ResumenViewModel.CurrentServicio = CurrentServicio;
-            InitViews();
         }
 
         #endregion

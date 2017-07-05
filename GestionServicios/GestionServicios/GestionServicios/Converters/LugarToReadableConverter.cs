@@ -12,9 +12,9 @@ namespace GestionServicios.Converters
 
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if (value == null) return string.Empty;
-
             var lugar = (Lugar)value;
+            if (lugar.Calle == null) return string.Empty;
+
             var builder = new StringBuilder();
             builder
                 .Append(lugar.Calle.Valor)
