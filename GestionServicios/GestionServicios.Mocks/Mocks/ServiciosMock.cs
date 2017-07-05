@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using GestionServicios.Domain.Models;
 
@@ -31,15 +30,12 @@ namespace GestionServicios.Mocks.Mocks
                     Calle = CallesMock.Calles.ElementAt(2),
                     Numero = 91
                 },
-                Vehiculos = new ObservableCollection<Vehiculo>
+                Vehiculo = new Vehiculo
                 {
-                    new Vehiculo
+                    Matricula = "8872-DWD",
+                    Propietario = new Persona
                     {
-                        Matricula = "8872-DWD",
-                        Propietario = new Persona
-                        {
-                            Dni = "35627213K"
-                        }
+                        Dni = "35627213K"
                     }
                 }
             }

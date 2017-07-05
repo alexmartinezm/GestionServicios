@@ -1,8 +1,6 @@
 using GestionServicios.Core.IOC;
 using GestionServicios.Domain.DataContext;
 using GestionServicios.Droid.Sqlite;
-using NUnit.Framework;
-using Xamarin.Forms;
 
 namespace GestionServiciosUnitTest.Tests
 {

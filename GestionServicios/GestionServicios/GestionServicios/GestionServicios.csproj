@@ -37,6 +37,8 @@
   <ItemGroup>
     <Compile Include="Commands\CreateServicioCommand.cs" />
     <Compile Include="Commands\SaveServicioCommand.cs" />
+    <Compile Include="Factories\PersonaFactory.cs" />
+    <Compile Include="Factories\VehiculoFactory.cs" />
     <Compile Include="MainApplication.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\AppResources.Designer.cs">

@@ -107,6 +107,15 @@ namespace GestionServicios.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 0000-BBB.
+        /// </summary>
+        internal static string EjemploMatricula {
+            get {
+                return ResourceManager.GetString("EjemploMatricula", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Fecha.
         /// </summary>
         internal static string Fecha {
@@ -125,11 +134,38 @@ namespace GestionServicios.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to DNI.
+        /// </summary>
+        internal static string IntroducirDni {
+            get {
+                return ResourceManager.GetString("IntroducirDni", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Introduce la matrícula.
+        /// </summary>
+        internal static string IntroducirMatricula {
+            get {
+                return ResourceManager.GetString("IntroducirMatricula", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Introduce el número.
         /// </summary>
         internal static string IntroducirNumero {
             get {
                 return ResourceManager.GetString("IntroducirNumero", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Datos de la persona.
+        /// </summary>
+        internal static string IntroducirPersona {
+            get {
+                return ResourceManager.GetString("IntroducirPersona", resourceCulture);
             }
         }
         
@@ -188,11 +224,11 @@ namespace GestionServicios.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Personas.
+        ///   Looks up a localized string similar to Persona.
         /// </summary>
-        internal static string Personas {
+        internal static string Persona {
             get {
-                return ResourceManager.GetString("Personas", resourceCulture);
+                return ResourceManager.GetString("Persona", resourceCulture);
             }
         }
         
@@ -242,11 +278,11 @@ namespace GestionServicios.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Vehículos.
+        ///   Looks up a localized string similar to Vehículo.
         /// </summary>
-        internal static string Vehiculos {
+        internal static string Vehiculo {
             get {
-                return ResourceManager.GetString("Vehiculos", resourceCulture);
+                return ResourceManager.GetString("Vehiculo", resourceCulture);
             }
         }
     }

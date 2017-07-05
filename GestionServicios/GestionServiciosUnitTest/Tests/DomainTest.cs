@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using GestionServicios.Domain.Models;
+﻿using GestionServicios.Domain.Models;
 using GestionServicios.Mocks.Mocks;
-using NUnit.Framework;
 
 namespace GestionServiciosUnitTest.Tests
 {
@@ -73,8 +68,8 @@ namespace GestionServiciosUnitTest.Tests
                 Descripcion = "Accidente múltiple en las inmediaciones de la rotonda de Sant Pepito.",
                 Lugar = lugar,
                 Agente = agente,
-                Vehiculos = vehiculosList,
-                Personas = personasList
+                Vehiculo = vehiculosList,
+                Persona = personasList
             };
             max++;
 

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.ObjectModel;
 using GestionServicios.Domain.Models.Base;
 
 namespace GestionServicios.Domain.Models
@@ -12,8 +11,8 @@ namespace GestionServicios.Domain.Models
         private string _descripcion;
         private Lugar _lugar;
         private Agente _agente;
-        private ObservableCollection<Vehiculo> _vehiculos;
-        private ObservableCollection<Persona> _personas;
+        private Vehiculo _vehiculo;
+        private Persona _persona;
         private bool _isValid;
 
         #endregion
@@ -44,16 +43,16 @@ namespace GestionServicios.Domain.Models
             set { _agente = value; RaiseOnPropertyChanged(); }
         }
 
-        public ObservableCollection<Vehiculo> Vehiculos
+        public Vehiculo Vehiculo
         {
-            get { return _vehiculos; }
-            set { _vehiculos = value; RaiseOnPropertyChanged(); }
+            get { return _vehiculo; }
+            set { _vehiculo = value; RaiseOnPropertyChanged(); }
         }
 
-        public ObservableCollection<Persona> Personas
+        public Persona Persona
         {
-            get { return _personas; }
-            set { _personas = value; RaiseOnPropertyChanged(); }
+            get { return _persona; }
+            set { _persona = value; RaiseOnPropertyChanged(); }
         }
 
         public bool IsValid

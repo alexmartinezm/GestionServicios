@@ -132,14 +132,26 @@
   <data name="DescripcionError" xml:space="preserve">
     <value>Debes introducir una descripción.</value>
   </data>
+  <data name="EjemploMatricula" xml:space="preserve">
+    <value>0000-BBB</value>
+  </data>
   <data name="Fecha" xml:space="preserve">
     <value>Fecha</value>
   </data>
   <data name="FechaError" xml:space="preserve">
     <value>Debes introducir la fecha.</value>
   </data>
+  <data name="IntroducirDni" xml:space="preserve">
+    <value>DNI</value>
+  </data>
+  <data name="IntroducirMatricula" xml:space="preserve">
+    <value>Introduce la matrícula</value>
+  </data>
   <data name="IntroducirNumero" xml:space="preserve">
     <value>Introduce el número</value>
+  </data>
+  <data name="IntroducirPersona" xml:space="preserve">
+    <value>Datos de la persona</value>
   </data>
   <data name="IntroducirTip" xml:space="preserve">
     <value>Introduce el TIP</value>
@@ -159,8 +171,8 @@
   <data name="NumeroCalleError" xml:space="preserve">
     <value>Debes introducir el número de la calle.</value>
   </data>
-  <data name="Personas" xml:space="preserve">
-    <value>Personas</value>
+  <data name="Persona" xml:space="preserve">
+    <value>Persona</value>
   </data>
   <data name="PropietarioError" xml:space="preserve">
     <value>Debes indicar el propietario del vehículo.</value>
@@ -177,7 +189,7 @@
   <data name="TipError" xml:space="preserve">
     <value>Debes introducir el TIP del agente.</value>
   </data>
-  <data name="Vehiculos" xml:space="preserve">
-    <value>Vehículos</value>
+  <data name="Vehiculo" xml:space="preserve">
+    <value>Vehículo</value>
   </data>
 </root>

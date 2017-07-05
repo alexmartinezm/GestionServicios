@@ -24,7 +24,7 @@ namespace GestionServicios.Views
 
         public void BuildView()
         {
-            Title = AppResources.Personas;
+            Title = AppResources.Persona;
         }
 
         #endregion

@@ -1,5 +1,4 @@
 using System;
-using System.Collections.ObjectModel;
 using GestionServicios.Domain.Models;
 using GestionServicios.Repository.Factories;
 
@@ -15,8 +14,8 @@ namespace GestionServicios.Factories
                 Fecha = DateTime.UtcNow,
                 Lugar = new LugarFactory().Create(),
                 Agente = new AgenteFactory().Create(),
-                Vehiculos = new ObservableCollection<Vehiculo>(),
-                Personas = new ObservableCollection<Persona>()
+                Vehiculo = new VehiculoFactory().Create(),
+                Persona = new PersonaFactory().Create()
             };
         }
     }

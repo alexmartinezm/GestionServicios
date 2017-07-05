@@ -12,7 +12,6 @@ namespace GestionServicios.Views
         #region Controls
 
         private Picker _calleBindablePicker;
-        private Entry _calleEntry;
         private Label _numeroLabel;
         private Entry _numeroEntry;
 
@@ -35,7 +34,6 @@ namespace GestionServicios.Views
                 SelectedValuePath = nameof(Calle.Valor),
             };
 
-            _calleEntry = new Entry();
             _numeroLabel = new Label
             {
                 Text = AppResources.IntroducirNumero
