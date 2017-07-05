@@ -23,7 +23,6 @@ namespace GestionServicios.Views
 
         public CreateServicioMasterView(CreateServicioMasterViewModel viewModel)
         {
-            //_context = context;
             _viewModel = viewModel;
             InitControls();
             BuildView();
@@ -62,7 +61,7 @@ namespace GestionServicios.Views
             Children.Add((Page)_viewModel.AgenteViewModel.View);
             Children.Add((Page)_viewModel.VehiculosViewModel.View);
             Children.Add((Page)_viewModel.PersonasViewModel.View);
-            Children.Add((Page)_viewModel.ResumenViewModel.View);
+            Children.Add((Page)_viewModel.ResumenServicioViewModel.View);
         }
 
         #endregion

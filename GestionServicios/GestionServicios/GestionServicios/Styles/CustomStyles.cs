@@ -23,5 +23,20 @@ namespace GestionServicios.Styles
                 }
             };
         }
+
+        public static Style ResumenDatosLabels()
+        {
+            return new Style(typeof(Label))
+            {
+                Setters =
+                {
+                    new Setter
+                    {
+                        Property = View.MarginProperty,
+                        Value = new Thickness(10, 0, 0, 10),
+                    }
+                }
+            };
+        }
     }
 }

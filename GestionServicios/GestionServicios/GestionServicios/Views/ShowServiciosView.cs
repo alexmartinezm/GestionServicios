@@ -28,14 +28,7 @@ namespace GestionServicios.Views
             InitControls();
             BuildView();
 
-            try
-            {
-                BindingContext = new ShowServiciosViewModel(memoryContext);
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
+            BindingContext = new ShowServiciosViewModel(memoryContext);
         }
 
         #endregion
@@ -64,7 +57,8 @@ namespace GestionServicios.Views
                     lugarLabel.SetBinding<Servicio>(Label.TextProperty, s => s.Lugar,
                         BindingMode.Default, new LugarToReadableConverter());
                     agenteLabel.SetBinding<Servicio>(Label.TextProperty, s => s.Agente.Tip);
-                    isValidImage.SetBinding(Image.SourceProperty, nameof(Servicio.IsValid));
+                    isValidImage.SetBinding(Image.SourceProperty, nameof(Servicio.IsValid), 
+                        BindingMode.Default, new BoolToImageConverter());
 #pragma warning restore 612
                     // Devolvemos un ViewCell con los controles creados
                     var grid = new Grid

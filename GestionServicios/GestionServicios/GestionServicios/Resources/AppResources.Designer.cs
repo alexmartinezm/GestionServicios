@@ -107,6 +107,15 @@ namespace GestionServicios.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Dirección.
+        /// </summary>
+        internal static string Direccion {
+            get {
+                return ResourceManager.GetString("Direccion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 0000-BBB.
         /// </summary>
         internal static string EjemploMatricula {

@@ -41,7 +41,7 @@ namespace GestionServicios.Views
         {
             Title = AppResources.Persona;
 
-            Content = new StackLayout()
+            Content = new StackLayout
             {
                 Children =
                 {
@@ -59,7 +59,7 @@ namespace GestionServicios.Views
         {
 #pragma warning disable CS0612 // Type or member is obsolete
             _dniEntry.SetBinding<IServicioModule>(Entry.TextProperty,
-                vm => vm.CurrentServicio.Vehiculo.Propietario.Dni);
+                vm => vm.CurrentServicio.Persona.Dni);
 #pragma warning restore CS0612 // Type or member is obsolete
             base.OnBindingContextChanged();
         }

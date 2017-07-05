@@ -67,6 +67,7 @@
     <Compile Include="ViewModels\Interfaces\IShowServicios.cs" />
     <Compile Include="Factories\LugarFactory.cs" />
     <Compile Include="Factories\ServicioFactory.cs" />
+    <Compile Include="Converters\BoolToImageConverter.cs" />
     <Compile Include="Views\CreateAgenteView.cs" />
     <Compile Include="ViewModels\CreateAgenteViewModel.cs" />
     <Compile Include="Views\CreateLugarView.cs" />
@@ -81,9 +82,10 @@
     <Compile Include="ViewModels\CreateServicioMasterViewModel.cs" />
     <Compile Include="Converters\LugarToReadableConverter.cs" />
     <Compile Include="Styles\CustomStyles.cs" />
-    <Compile Include="Views\ShowResumenView.cs" />
+    <Compile Include="Converters\DateTimeToDateConverter.cs" />
+    <Compile Include="Views\ShowResumenServicioView.cs" />
     <Compile Include="Views\CreateServicioView.cs" />
-    <Compile Include="ViewModels\ShowResumenViewModel.cs" />
+    <Compile Include="ViewModels\ShowResumenServicioViewModel.cs" />
     <Compile Include="Views\ShowServiciosView.cs" />
     <Compile Include="ViewModels\ShowServiciosViewModel.cs" />
   </ItemGroup>

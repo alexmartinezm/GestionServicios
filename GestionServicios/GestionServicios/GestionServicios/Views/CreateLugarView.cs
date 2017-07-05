@@ -1,6 +1,7 @@
 using GestionServicios.Core.Custom_controls;
 using GestionServicios.Domain.Models;
 using GestionServicios.Resources;
+using GestionServicios.Styles;
 using GestionServicios.ViewModels.Interfaces;
 using GestionServicios.Views.Base;
 using Xamarin.Forms;
@@ -14,6 +15,7 @@ namespace GestionServicios.Views
         private Picker _calleBindablePicker;
         private Label _numeroLabel;
         private Entry _numeroEntry;
+        private Label _direccionLabel;
 
         #endregion
 
@@ -27,6 +29,12 @@ namespace GestionServicios.Views
 
         public void InitControls()
         {
+            _direccionLabel = new Label
+            {
+                Text = AppResources.Direccion,
+                Style = CustomStyles.DefaultLabels()
+            };
+
             _calleBindablePicker = new BindablePicker
             {
                 Title = AppResources.SeleccionaCalle,
@@ -36,7 +44,8 @@ namespace GestionServicios.Views
 
             _numeroLabel = new Label
             {
-                Text = AppResources.IntroducirNumero
+                Text = AppResources.IntroducirNumero,
+                Style = CustomStyles.DefaultLabels()
             };
 
             _numeroEntry = new Entry
@@ -53,6 +62,7 @@ namespace GestionServicios.Views
                 Padding = 5,
                 Children =
                 {
+                    _direccionLabel,
                     _calleBindablePicker,
                     _numeroLabel,
                     _numeroEntry

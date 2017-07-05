@@ -4,7 +4,7 @@ using GestionServicios.ViewModels.Interfaces;
 
 namespace GestionServicios.ViewModels
 {
-    internal class CreateLugarViewModel : BaseViewModel, IServicioModule
+    internal class ShowResumenServicioViewModel : BaseViewModel, IServicioModule
     {
         #region Fields
 
@@ -22,9 +22,10 @@ namespace GestionServicios.ViewModels
 
         #endregion
 
-        public CreateLugarViewModel()
+        public ShowResumenServicioViewModel()
         {
-            
+
         }
+
     }
 }

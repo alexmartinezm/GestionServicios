@@ -66,6 +66,8 @@ namespace GestionServicios.Views
 
         #endregion
 
+        #region Overrides
+
         protected override void OnBindingContextChanged()
         {
 #pragma warning disable CS0612 // Type or member is obsolete
@@ -77,5 +79,7 @@ namespace GestionServicios.Views
 
             base.OnBindingContextChanged();
         }
+
+        #endregion
     }
 }

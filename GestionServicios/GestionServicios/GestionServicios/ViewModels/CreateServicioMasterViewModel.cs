@@ -42,7 +42,7 @@ namespace GestionServicios.ViewModels
         public CreateAgenteViewModel AgenteViewModel { get; set; }
         public CreateVehiculosViewModel VehiculosViewModel { get; set; }
         public CreatePersonasViewModel PersonasViewModel { get; set; }
-        public ShowResumenViewModel ResumenViewModel { get; set; }
+        public ShowResumenServicioViewModel ResumenServicioViewModel { get; set; }
 
         #endregion
 
@@ -57,14 +57,12 @@ namespace GestionServicios.ViewModels
             CallesList = new ObservableCollection<Calle>(CallesMock.Calles);
             InitViewModels();
             InitViews();
+
             SaveServicioCommand = new SaveServicioCommand(context);
+
             CurrentServicio = selectedServicio ?? new ServicioFactory().Create();
-            ServicioViewModel.CurrentServicio = CurrentServicio;
-            LugarViewModel.CurrentServicio = CurrentServicio;
-            AgenteViewModel.CurrentServicio = CurrentServicio;
-            VehiculosViewModel.CurrentServicio = CurrentServicio;
-            PersonasViewModel.CurrentServicio = CurrentServicio;
-            //ResumenViewModel.CurrentServicio = CurrentServicio;
+
+            LinkViewModels();
         }
 
         #endregion
@@ -78,7 +76,7 @@ namespace GestionServicios.ViewModels
             AgenteViewModel = new GenericFactory<CreateAgenteViewModel>().Create();
             VehiculosViewModel = new GenericFactory<CreateVehiculosViewModel>().Create();
             PersonasViewModel = new GenericFactory<CreatePersonasViewModel>().Create();
-            ResumenViewModel = new GenericFactory<ShowResumenViewModel>().Create();
+            ResumenServicioViewModel = new GenericFactory<ShowResumenServicioViewModel>().Create();
         }
 
         private void InitViews()
@@ -88,7 +86,17 @@ namespace GestionServicios.ViewModels
             AgenteViewModel.View = new GenericFactory<CreateAgenteView>().Create();
             VehiculosViewModel.View = new GenericFactory<CreateVehiculosView>().Create();
             PersonasViewModel.View = new GenericFactory<CreatePersonasView>().Create();
-            ResumenViewModel.View = new GenericFactory<ShowResumenView>().Create();
+            ResumenServicioViewModel.View = new GenericFactory<ShowResumenServicioView>().Create();
+        }
+
+        private void LinkViewModels()
+        {
+            ServicioViewModel.CurrentServicio = CurrentServicio;
+            LugarViewModel.CurrentServicio = CurrentServicio;
+            AgenteViewModel.CurrentServicio = CurrentServicio;
+            VehiculosViewModel.CurrentServicio = CurrentServicio;
+            PersonasViewModel.CurrentServicio = CurrentServicio;
+            ResumenServicioViewModel.CurrentServicio = CurrentServicio;
         }
 
         #endregion

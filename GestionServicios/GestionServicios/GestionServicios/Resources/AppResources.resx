@@ -132,6 +132,9 @@
   <data name="DescripcionError" xml:space="preserve">
     <value>Debes introducir una descripción.</value>
   </data>
+  <data name="Direccion" xml:space="preserve">
+    <value>Dirección</value>
+  </data>
   <data name="EjemploMatricula" xml:space="preserve">
     <value>0000-BBB</value>
   </data>
