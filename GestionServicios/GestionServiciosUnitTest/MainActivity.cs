@@ -1,4 +1,10 @@
-﻿namespace GestionServiciosUnitTest
+﻿using System.Reflection;
+using Android.App;
+using Android.OS;
+using Xamarin.Android.NUnitLite;
+using Xamarin.Forms;
+
+namespace GestionServiciosUnitTest
 {
     [Activity(Label = "GestionServiciosUnitTest", MainLauncher = true, Icon = "@drawable/icon")]
     public class MainActivity : TestSuiteActivity

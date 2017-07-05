@@ -68,6 +68,7 @@
     <Compile Include="Factories\LugarFactory.cs" />
     <Compile Include="Factories\ServicioFactory.cs" />
     <Compile Include="Converters\BoolToImageConverter.cs" />
+    <Compile Include="Views\Base\BaseView.cs" />
     <Compile Include="Views\CreateAgenteView.cs" />
     <Compile Include="ViewModels\CreateAgenteViewModel.cs" />
     <Compile Include="Views\CreateLugarView.cs" />

@@ -14,6 +14,7 @@ namespace GestionServicios.Droid
         {
             base.OnCreate(bundle);
             Forms.Init(this, bundle);
+            var a = Resources.GetDrawable(Resource.Drawable.ic_borrador_valido);
 
             //DependencyService.Register<SqliteDroid>();
             //DependencyService.Register<SqliteDataContext>();

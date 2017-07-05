@@ -20,7 +20,7 @@ namespace GestionServicios.Commands
         public void Execute(object parameter)
         {
             // Especificamos null ya que el método CreateInstance no reconoce los parámetros con
-            // valor por defecto
+            // valores por defecto
             var masterViewModel = GenericFactory<CreateServicioMasterViewModel>
                 .Create((MemoryContext)parameter, null);
 

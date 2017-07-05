@@ -1,5 +1,6 @@
 using System.Collections.ObjectModel;
 using GestionServicios.Commands;
+using GestionServicios.Core.Extensions;
 using GestionServicios.Domain.MemoryContext;
 using GestionServicios.Domain.Models;
 using GestionServicios.Factories;
@@ -8,6 +9,7 @@ using GestionServicios.Repository.Factories;
 using GestionServicios.ViewModels.Base;
 using GestionServicios.ViewModels.Interfaces;
 using GestionServicios.Views;
+using Xamarin.Forms;
 
 namespace GestionServicios.ViewModels
 {
@@ -18,6 +20,7 @@ namespace GestionServicios.ViewModels
 
         private Servicio _currentServicio;
         private ObservableCollection<Calle> _callesList;
+        private MemoryContext _context;
 
         #endregion
 
@@ -52,13 +55,14 @@ namespace GestionServicios.ViewModels
         {
         }
 
-        public CreateServicioMasterViewModel(MemoryContext context, Servicio selectedServicio = null)
+        public CreateServicioMasterViewModel(MemoryContext context, Servicio selectedServicio = default(Servicio))
         {
+            _context = context;
             CallesList = new ObservableCollection<Calle>(CallesMock.Calles);
             InitViewModels();
             InitViews();
 
-            SaveServicioCommand = new SaveServicioCommand(context);
+            SaveServicioCommand = new SaveServicioCommand(_context);
 
             CurrentServicio = selectedServicio ?? new ServicioFactory().Create();
 
@@ -100,5 +104,18 @@ namespace GestionServicios.ViewModels
         }
 
         #endregion
+
+        public bool OnBackButtonPressed()
+        {
+            var isSaved = new RepositoryInMemoryFactory<Servicio>(_context).Instance
+                .Find(s => s.Id == CurrentServicio.Id).HasResults();
+
+            if (isSaved)
+            {
+                //MessagingCenter.Send();
+            }
+
+            return isSaved;
+        }
     }
 }

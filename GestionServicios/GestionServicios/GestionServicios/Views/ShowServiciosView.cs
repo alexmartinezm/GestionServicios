@@ -1,5 +1,4 @@
-﻿using System;
-using GestionServicios.Converters;
+﻿using GestionServicios.Converters;
 using GestionServicios.Domain.MemoryContext;
 using GestionServicios.Domain.Models;
 using GestionServicios.Resources;
@@ -10,7 +9,7 @@ using Xamarin.Forms;
 
 namespace GestionServicios.Views
 {
-    internal class ShowServiciosView : ContentPage, IBaseView
+    internal class ShowServiciosView : BaseView
     {
         #region Fields
 
@@ -25,8 +24,6 @@ namespace GestionServicios.Views
         public ShowServiciosView(MemoryContext memoryContext)
         {
             _memoryContext = memoryContext;
-            InitControls();
-            BuildView();
 
             BindingContext = new ShowServiciosViewModel(memoryContext);
         }
@@ -38,7 +35,7 @@ namespace GestionServicios.Views
         /// <summary>
         /// Inicializa los controles de la vista.
         /// </summary>
-        public void InitControls()
+        public override void InitControls()
         {
             _serviciosListView = new ListView
             {
@@ -87,6 +84,7 @@ namespace GestionServicios.Views
 
             _createServicioToolbarItem = new ToolbarItem
             {
+                Text = AppResources.CrearServicio,
                 Icon = new FileImageSource
                 {
                     File = "ic_action_add.png",
@@ -98,7 +96,7 @@ namespace GestionServicios.Views
         /// <summary>
         /// Construye y muestra la vista.
         /// </summary>
-        public void BuildView()
+        public override void BuildView()
         {
             Title = AppResources.NombreApp;
             ToolbarItems.Add(_createServicioToolbarItem);
@@ -133,5 +131,4 @@ namespace GestionServicios.Views
 
         #endregion
     }
-
 }

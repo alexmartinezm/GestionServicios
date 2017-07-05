@@ -144,6 +144,9 @@
   <data name="FechaError" xml:space="preserve">
     <value>Debes introducir la fecha.</value>
   </data>
+  <data name="GuardarCambios" xml:space="preserve">
+    <value>Guardar cambios</value>
+  </data>
   <data name="IntroducirDni" xml:space="preserve">
     <value>Introduce el DNI</value>
   </data>

@@ -143,6 +143,15 @@ namespace GestionServicios.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Guardar cambios.
+        /// </summary>
+        internal static string GuardarCambios {
+            get {
+                return ResourceManager.GetString("GuardarCambios", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Introduce el DNI.
         /// </summary>
         internal static string IntroducirDni {

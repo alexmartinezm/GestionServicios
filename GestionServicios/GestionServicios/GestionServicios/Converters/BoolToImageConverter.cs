@@ -10,8 +10,7 @@ namespace GestionServicios.Converters
 
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            var result = (bool) value;
-            return result ? "ic_borrador_valido.png" : "ic_borrador.png";
+            return (bool)value ? "ic_borrador_valido.png" : "ic_borrador.png";
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

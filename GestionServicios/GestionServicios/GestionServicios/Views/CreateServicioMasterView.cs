@@ -38,6 +38,7 @@ namespace GestionServicios.Views
         {
             _saveToolbarItem = new ToolbarItem
             {
+                Text = AppResources.GuardarCambios,
                 Icon = new FileImageSource
                 {
                     File = "ic_action_file_upload.png"
@@ -62,6 +63,15 @@ namespace GestionServicios.Views
             Children.Add((Page)_viewModel.VehiculosViewModel.View);
             Children.Add((Page)_viewModel.PersonasViewModel.View);
             Children.Add((Page)_viewModel.ResumenServicioViewModel.View);
+        }
+
+        #endregion
+
+        #region Overrides
+
+        protected override bool OnBackButtonPressed()
+        {
+            return _viewModel.OnBackButtonPressed();
         }
 
         #endregion
