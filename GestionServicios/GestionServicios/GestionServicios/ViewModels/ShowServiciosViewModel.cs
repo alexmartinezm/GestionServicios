@@ -62,15 +62,7 @@ namespace GestionServicios.ViewModels
 
             MessagingCenter.Subscribe<Servicio>(this, MessagingResources.ServicioCreado, (servicio) =>
             {
-                try
-                {
-                    ServiciosList.Add(servicio);
-                }
-                catch (Exception e)
-                {
-                    
-                    throw;
-                }
+                ServiciosList.Add(servicio);
             });
 
             MessagingCenter.Subscribe<Servicio>(this, MessagingResources.ServicioActualizado, (servicio) =>
