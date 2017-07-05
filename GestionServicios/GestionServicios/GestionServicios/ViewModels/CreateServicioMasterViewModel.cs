@@ -63,7 +63,7 @@ namespace GestionServicios.ViewModels
             LugarViewModel.CurrentServicio = CurrentServicio;
             AgenteViewModel.CurrentServicio = CurrentServicio;
             VehiculosViewModel.CurrentServicio = CurrentServicio;
-            //PersonasViewModel.CurrentServicio = CurrentServicio;
+            PersonasViewModel.CurrentServicio = CurrentServicio;
             //ResumenViewModel.CurrentServicio = CurrentServicio;
         }
 

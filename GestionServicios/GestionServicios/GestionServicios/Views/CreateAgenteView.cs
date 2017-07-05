@@ -37,7 +37,7 @@ namespace GestionServicios.Views
         {
             Title = AppResources.Agente;
 
-            Content = new StackLayout()
+            Content = new StackLayout
             {
                 Children =
                 {

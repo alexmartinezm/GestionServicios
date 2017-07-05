@@ -134,7 +134,7 @@ namespace GestionServicios.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to DNI.
+        ///   Looks up a localized string similar to Introduce el DNI.
         /// </summary>
         internal static string IntroducirDni {
             get {

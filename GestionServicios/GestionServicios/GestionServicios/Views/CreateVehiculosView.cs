@@ -13,7 +13,7 @@ namespace GestionServicios.Views
         private Entry _matriculaEntry;
         private Label _matriculaLabel;
         private Label _personaLabel;
-        private Entry _personaEntry;
+        private Entry _dniEntry;
 
         #endregion
 
@@ -27,23 +27,23 @@ namespace GestionServicios.Views
 
         public void InitControls()
         {
-            _matriculaLabel = new Label()
+            _matriculaLabel = new Label
             {
                 Text = AppResources.IntroducirMatricula,
                 Style = CustomStyles.DefaultLabels()
             };
-            _matriculaEntry = new Entry()
+            _matriculaEntry = new Entry
             {
                 Placeholder = AppResources.EjemploMatricula
             };
 
-            _personaLabel = new Label()
+            _personaLabel = new Label
             {
                 Text = AppResources.IntroducirPersona,
                 Style = CustomStyles.DefaultLabels()
             };
 
-            _personaEntry = new Entry()
+            _dniEntry = new Entry
             {
                 Placeholder = AppResources.IntroducirDni
             };
@@ -53,14 +53,14 @@ namespace GestionServicios.Views
         {
             Title = AppResources.Vehiculo;
 
-            Content = new StackLayout()
+            Content = new StackLayout
             {
                 Children =
                 {
                     _matriculaLabel,
                     _matriculaEntry,
                     _personaLabel,
-                    _personaEntry
+                    _dniEntry
                 }
             };
         }
@@ -74,7 +74,7 @@ namespace GestionServicios.Views
 #pragma warning disable CS0612 // Type or member is obsolete
             _matriculaEntry.SetBinding<IServicioModule>(Entry.TextProperty, 
                 vm => vm.CurrentServicio.Vehiculo.Matricula);
-            _personaEntry.SetBinding<IServicioModule>(Entry.TextProperty,
+            _dniEntry.SetBinding<IServicioModule>(Entry.TextProperty,
                 vm => vm.CurrentServicio.Vehiculo.Propietario.Dni);
 #pragma warning restore CS0612 // Type or member is obsolete
 

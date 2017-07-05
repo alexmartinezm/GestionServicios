@@ -7,7 +7,7 @@ namespace GestionServicios.Factories
     {
         public override Vehiculo Create()
         {
-            return new Vehiculo()
+            return new Vehiculo
             {
                 Matricula = string.Empty,
                 Propietario = new PersonaFactory().Create()

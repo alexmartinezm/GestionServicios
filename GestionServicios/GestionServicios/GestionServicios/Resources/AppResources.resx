@@ -142,7 +142,7 @@
     <value>Debes introducir la fecha.</value>
   </data>
   <data name="IntroducirDni" xml:space="preserve">
-    <value>DNI</value>
+    <value>Introduce el DNI</value>
   </data>
   <data name="IntroducirMatricula" xml:space="preserve">
     <value>Introduce la matrícula</value>

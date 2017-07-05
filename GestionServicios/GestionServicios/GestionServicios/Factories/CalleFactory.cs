@@ -7,7 +7,7 @@ namespace GestionServicios.Factories
     {
         public override Calle Create()
         {
-            return new Calle()
+            return new Calle
             {
                 Valor = string.Empty
             };

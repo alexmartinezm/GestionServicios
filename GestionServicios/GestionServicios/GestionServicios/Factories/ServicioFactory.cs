@@ -8,7 +8,7 @@ namespace GestionServicios.Factories
     {
         public override Servicio Create()
         {
-            return new Servicio()
+            return new Servicio
             {
                 Descripcion = string.Empty,
                 Fecha = DateTime.UtcNow,

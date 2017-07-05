@@ -7,7 +7,7 @@ namespace GestionServicios.Factories
     {
         public override Persona Create()
         {
-            return new Persona()
+            return new Persona
             {
                 Dni = string.Empty
             };
