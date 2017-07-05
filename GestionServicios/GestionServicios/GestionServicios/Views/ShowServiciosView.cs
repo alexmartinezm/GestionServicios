@@ -48,7 +48,11 @@ namespace GestionServicios.Views
                     var fechaLabel = new Label();
                     var agenteLabel = new Label();
                     var lugarLabel = new Label();
-                    var isValidImage = new Image();
+                    var isValidImage = new Image()
+                    {
+                        HeightRequest = 200,
+                        WidthRequest = 200
+                    };
 
                     // Bindings
                     fechaLabel.SetBinding(Label.TextProperty, nameof(Servicio.Fecha));

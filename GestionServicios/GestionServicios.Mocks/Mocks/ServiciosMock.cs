@@ -11,6 +11,7 @@ namespace GestionServicios.Mocks.Mocks
         {
             new Servicio
             {
+                IsValid = true,
                 Agente = AgentesMock.Agentes.ElementAt(0),
                 Descripcion = "Accidente múltiple en la ronda.",
                 Fecha = DateTime.UtcNow,
