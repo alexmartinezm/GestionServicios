@@ -4,7 +4,7 @@ namespace GestionServicios.Styles
 {
     internal class CustomStyles
     {
-        public Style DefaultLabels()
+        public static Style DefaultLabels()
         {
             return new Style(typeof(Label))
             {

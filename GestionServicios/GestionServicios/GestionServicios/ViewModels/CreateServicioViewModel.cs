@@ -1,7 +1,6 @@
 ﻿using GestionServicios.Domain.Models;
 using GestionServicios.ViewModels.Base;
 using GestionServicios.ViewModels.Interfaces;
-using GestionServicios.Views;
 
 namespace GestionServicios.ViewModels
 {
@@ -15,13 +14,17 @@ namespace GestionServicios.ViewModels
 
         #region Properties
 
+        public CreateServicioViewModel()
+        {
+            
+        }
         public Servicio CurrentServicio
         {
             get { return _currentServicio; }
             set { _currentServicio = value; RaiseOnPropertyChanged(); }
         }
 
-        public CreateServicioView CreateServicioView { get; set; }
+        //public CreateServicioView CreateServicioView { get; set; }
 
         #endregion
     }

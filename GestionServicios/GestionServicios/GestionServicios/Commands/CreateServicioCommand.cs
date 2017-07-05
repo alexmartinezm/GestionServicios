@@ -23,12 +23,6 @@ namespace GestionServicios.Commands
             // valor por defecto
             var masterViewModel = GenericFactory<CreateServicioMasterViewModel>
                 .Create((MemoryContext)parameter, null);
-            masterViewModel.ServicioViewModel.View = GenericFactory<CreateServicioView>.Create();
-            masterViewModel.LugarViewModel.View = GenericFactory<CreateLugarView>.Create();
-            masterViewModel.AgenteViewModel.View = GenericFactory<CreateAgenteView>.Create();
-            masterViewModel.VehiculosViewModel.View = GenericFactory<CreateVehiculosView>.Create();
-            masterViewModel.PersonasViewModel.View = GenericFactory<CreatePersonasView>.Create();
-            masterViewModel.ResumenViewModel.View = GenericFactory<ShowResumenView>.Create();
 
             NavigationService.Current.PushAsync(GenericFactory<CreateServicioMasterView>.Create(masterViewModel));
         }

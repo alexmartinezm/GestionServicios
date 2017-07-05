@@ -141,6 +141,9 @@
   <data name="IntroducirNumero" xml:space="preserve">
     <value>Introduce el número</value>
   </data>
+  <data name="IntroducirTip" xml:space="preserve">
+    <value>Introduce el TIP</value>
+  </data>
   <data name="Lugar" xml:space="preserve">
     <value>Lugar</value>
   </data>

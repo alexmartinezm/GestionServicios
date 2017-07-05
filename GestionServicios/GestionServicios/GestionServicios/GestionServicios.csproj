@@ -54,13 +54,17 @@
     <Compile Include="Validators\PersonaValidator.cs" />
     <Compile Include="Validators\ServicioValidator.cs" />
     <Compile Include="Validators\VehiculoValidator.cs" />
+    <Compile Include="Factories\AgenteFactory.cs" />
     <Compile Include="ViewModels\Base\BaseViewModel.cs" />
     <Compile Include="ViewModels\Base\HandleView.cs" />
+    <Compile Include="Factories\CalleFactory.cs" />
     <Compile Include="ViewModels\Interfaces\IHasCallesList.cs" />
     <Compile Include="ViewModels\Interfaces\IHasCreateServicioCommand.cs" />
     <Compile Include="ViewModels\Interfaces\IHasSaveServicioCommand.cs" />
     <Compile Include="ViewModels\Interfaces\IServicioModule.cs" />
     <Compile Include="ViewModels\Interfaces\IShowServicios.cs" />
+    <Compile Include="Factories\LugarFactory.cs" />
+    <Compile Include="Factories\ServicioFactory.cs" />
     <Compile Include="Views\CreateAgenteView.cs" />
     <Compile Include="ViewModels\CreateAgenteViewModel.cs" />
     <Compile Include="Views\CreateLugarView.cs" />

@@ -7,7 +7,7 @@ namespace GestionServicios.Domain.Models
         #region Fields
 
         private Calle _calle;
-        private int? _numero;
+        private int _numero;
 
         #endregion
 
@@ -19,7 +19,7 @@ namespace GestionServicios.Domain.Models
             set { _calle = value; RaiseOnPropertyChanged();}
         }
 
-        public int? Numero
+        public int Numero
         {
             get { return _numero; }
             set { _numero = value; RaiseOnPropertyChanged();}

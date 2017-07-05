@@ -1,4 +1,5 @@
-﻿using GestionServicios.Converters;
+﻿using System;
+using GestionServicios.Converters;
 using GestionServicios.Domain.MemoryContext;
 using GestionServicios.Domain.Models;
 using GestionServicios.Resources;
@@ -27,7 +28,14 @@ namespace GestionServicios.Views
             InitControls();
             BuildView();
 
-            BindingContext = new ShowServiciosViewModel(memoryContext);
+            try
+            {
+                BindingContext = new ShowServiciosViewModel(memoryContext);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
         }
 
         #endregion

@@ -2,10 +2,12 @@ using System.Collections.ObjectModel;
 using GestionServicios.Commands;
 using GestionServicios.Domain.MemoryContext;
 using GestionServicios.Domain.Models;
+using GestionServicios.Factories;
 using GestionServicios.Mocks.Mocks;
 using GestionServicios.Repository.Factories;
 using GestionServicios.ViewModels.Base;
 using GestionServicios.ViewModels.Interfaces;
+using GestionServicios.Views;
 
 namespace GestionServicios.ViewModels
 {
@@ -55,13 +57,14 @@ namespace GestionServicios.ViewModels
             CallesList = new ObservableCollection<Calle>(CallesMock.Calles);
             InitViewModels();
             SaveServicioCommand = new SaveServicioCommand(context);
-            CurrentServicio = selectedServicio ?? GenericFactory<Servicio>.Create();
+            CurrentServicio = selectedServicio ?? new ServicioFactory().Create();
             ServicioViewModel.CurrentServicio = CurrentServicio;
             LugarViewModel.CurrentServicio = CurrentServicio;
-            //AgenteViewModel.CurrentServicio = CurrentServicio;
+            AgenteViewModel.CurrentServicio = CurrentServicio;
             //VehiculosViewModel.CurrentServicio = CurrentServicio;
             //PersonasViewModel.CurrentServicio = CurrentServicio;
             //ResumenViewModel.CurrentServicio = CurrentServicio;
+            InitViews();
         }
 
         #endregion
@@ -70,12 +73,22 @@ namespace GestionServicios.ViewModels
 
         private void InitViewModels()
         {
-            ServicioViewModel = GenericFactory<CreateServicioViewModel>.Create();
-            LugarViewModel = GenericFactory<CreateLugarViewModel>.Create();
-            AgenteViewModel = GenericFactory<CreateAgenteViewModel>.Create();
-            VehiculosViewModel = GenericFactory<CreateVehiculosViewModel>.Create();
-            PersonasViewModel = GenericFactory<CreatePersonasViewModel>.Create();
-            ResumenViewModel = GenericFactory<ShowResumenViewModel>.Create();
+            ServicioViewModel = new GenericFactory<CreateServicioViewModel>().Create();
+            LugarViewModel = new GenericFactory<CreateLugarViewModel>().Create();
+            AgenteViewModel = new GenericFactory<CreateAgenteViewModel>().Create();
+            VehiculosViewModel = new GenericFactory<CreateVehiculosViewModel>().Create();
+            PersonasViewModel = new GenericFactory<CreatePersonasViewModel>().Create();
+            ResumenViewModel = new GenericFactory<ShowResumenViewModel>().Create();
+        }
+
+        private void InitViews()
+        {
+            ServicioViewModel.View = new GenericFactory<CreateServicioView>().Create();
+            LugarViewModel.View = new GenericFactory<CreateLugarView>().Create();
+            AgenteViewModel.View = new GenericFactory<CreateAgenteView>().Create();
+            VehiculosViewModel.View = new GenericFactory<CreateVehiculosView>().Create();
+            PersonasViewModel.View = new GenericFactory<CreatePersonasView>().Create();
+            ResumenViewModel.View = new GenericFactory<ShowResumenView>().Create();
         }
 
         #endregion

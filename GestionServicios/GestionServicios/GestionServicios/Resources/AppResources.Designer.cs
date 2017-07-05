@@ -134,6 +134,15 @@ namespace GestionServicios.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Introduce el TIP.
+        /// </summary>
+        internal static string IntroducirTip {
+            get {
+                return ResourceManager.GetString("IntroducirTip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Lugar.
         /// </summary>
         internal static string Lugar {

@@ -48,7 +48,7 @@ namespace GestionServicios.Views
                         {
                             new Label
                             {
-                                Style = new CustomStyles().DefaultLabels(),
+                                Style = CustomStyles.DefaultLabels(),
                                 Text = AppResources.Fecha
                             },
                             _fechaDatePicker
@@ -56,7 +56,7 @@ namespace GestionServicios.Views
                     },
                     new Label
                     {
-                        Style = new CustomStyles().DefaultLabels(),
+                        Style = CustomStyles.DefaultLabels(),
                         Text = AppResources.Descripcion
                     },
                     _descripcionEditor
