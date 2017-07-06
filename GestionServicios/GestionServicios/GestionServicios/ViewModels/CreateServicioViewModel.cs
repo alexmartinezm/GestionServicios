@@ -21,10 +21,5 @@ namespace GestionServicios.ViewModels
         }
 
         #endregion
-
-        public CreateServicioViewModel()
-        {
-
-        }
     }
 }
